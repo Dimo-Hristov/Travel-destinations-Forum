@@ -35,4 +35,17 @@ export class AuthService {
       }
     );
   }
+
+  //logout method
+  logout() {
+    this.fireAuth.signOut().then(
+      () => {
+        localStorage.removeItem('token');
+        this.router.navigate(['/login']);
+      },
+      (err) => {
+        alert(err.message);
+      }
+    );
+  }
 }
