@@ -16,8 +16,22 @@ export class AuthService {
         this.router.navigate(['/home']);
       },
       (err) => {
-        alert('Something went wrong');
+        alert(err.message);
         this.router.navigate(['/login']);
+      }
+    );
+  }
+
+  // register method
+  register(email: string, password: string) {
+    this.fireAuth.createUserWithEmailAndPassword(email, password).then(
+      () => {
+        alert('Successful registration, please login.');
+        this.router.navigate(['/login']);
+      },
+      (err) => {
+        alert(err.message);
+        this.router.navigate(['/register']);
       }
     );
   }
