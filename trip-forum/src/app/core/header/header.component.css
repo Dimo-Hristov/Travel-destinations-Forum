@@ -34,6 +34,7 @@
 
 .navbar ul li:last-child a {
     background-color: #370511;
+    color: white;
 }
 
 .intro {
