@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { CoreModule } from './core/core.module';
 import { DestinationsListComponent } from './destinations-list/destinations-list.component';
 import { environment } from '../environments/environment';
+import { UserModule } from './user/user.module';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, DestinationsListComponent],
