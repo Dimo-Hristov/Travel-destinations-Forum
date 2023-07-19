@@ -10,5 +10,10 @@ import { AuthService } from 'src/app/shared/auth.service';
 export class ForgotPasswordComponent {
   constructor(private auth: AuthService) {}
 
-  forgotPasswordHandler(email: NgForm) {}
+  forgotPasswordHandler(form: NgForm) {
+    const value: { email: string } = form.value;
+
+    this.auth.forgotPassword(value.email);
+    value.email = '';
+  }
 }

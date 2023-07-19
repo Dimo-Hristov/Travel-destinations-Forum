@@ -48,4 +48,17 @@ export class AuthService {
       }
     );
   }
+
+  // forgot password
+
+  forgotPassword(email: string) {
+    this.fireAuth.sendPasswordResetEmail(email).then(
+      () => {
+        this.router.navigate(['/verify-email']);
+      },
+      (err) => {
+        alert(err.message);
+      }
+    );
+  }
 }
