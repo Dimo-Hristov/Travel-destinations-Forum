@@ -18,6 +18,7 @@ import { UserModule } from './user/user.module';
     BrowserModule,
     AppRoutingModule,
     CoreModule,
+    UserModule,
     AngularFireModule.initializeApp(environment.firebase),
   ],
   providers: [],

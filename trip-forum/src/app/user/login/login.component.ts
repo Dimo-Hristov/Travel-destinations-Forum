@@ -8,13 +8,14 @@ import { AuthService } from 'src/app/shared/auth.service';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-  email: string = '';
-  password: string = '';
-
   constructor(private auth: AuthService) {}
 
   loginHandler(form: NgForm) {
-    console.log(form.value);
     const value: { email: string; password: string } = form.value;
+
+    this.auth.login(value.email, value.password);
+
+    value.email = '';
+    value.password = '';
   }
 }
