@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './user/register/register.component';
 import { ForgotPasswordComponent } from './user/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './user/verify-email/verify-email.component';
+import { DestinationsListComponent } from './destinations-list/destinations-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'verify-email', component: VerifyEmailComponent },
+  { path: 'destinations-list', component: DestinationsListComponent },
 ];
 
 @NgModule({
