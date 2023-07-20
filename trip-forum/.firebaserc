@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "angular-project-defence": {
+      "hosting": {
+        "trip-forum": [
+          "angular-project-defence"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "angular-project-defence"
+  }
+}

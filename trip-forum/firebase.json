@@ -1,0 +1,9 @@
+{
+  "hosting": [
+    {
+      "target": "trip-forum",
+      "source": ".",
+      "frameworksBackend": {}
+    }
+  ]
+}
