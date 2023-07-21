@@ -8,10 +8,9 @@ import { environment } from 'src/environments/environment.development';
 export class ApiService {
   constructor(private http: HttpClient) {}
 
-  getDestinations(limit?: number) {
+  getDestinations() {
     const { appUrl } = environment;
-    const limitFilter = limit ? `?sortBy=_createdOn%${limit}desc` : '';
 
-    return this.http.get(`${appUrl}/destinations${limitFilter}`);
+    return this.http.get(appUrl);
   }
 }
