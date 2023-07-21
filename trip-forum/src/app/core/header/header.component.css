@@ -34,7 +34,11 @@ body {
     border-radius: 1rem;
 }
 
-.navbar ul li:last-child a {
+.navbar ul {
+    display: flex;
+}
+
+.navbar ul>li:last-child a {
     background-color: #370511;
     color: white;
 }

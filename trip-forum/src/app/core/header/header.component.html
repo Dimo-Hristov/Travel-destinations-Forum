@@ -5,8 +5,12 @@
     <ul role="list">
       <li><a href="#">Home</a></li>
       <li><a href="#">About</a></li>
-      <li><a href="#">Tour Packages</a></li>
-      <li><a href="#">Contact</a></li>
+
+      <div class="login-register" *ngIf="!isLoggenIn">
+        <li><a href="#">Login</a></li>
+        <li><a href="#">Register</a></li>
+      </div>
+
       <li><a href="#">Explore places</a></li>
     </ul>
   </nav>
@@ -18,8 +22,6 @@
       Each property is hand-picked,<br />
       personally visited and cannot be found elsewhere.
     </p>
-
-    <a href="#">Explore homes</a>
   </section>
 
   <img
