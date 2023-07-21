@@ -8,15 +8,16 @@ import { MainComponent } from './main/main.component';
 import { DestinationsListComponent } from './destinations-list/destinations-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
-import { HomeComponent } from './home/home.component';
+import { UserModule } from './user/user.module';
 
 @NgModule({
-  declarations: [AppComponent, MainComponent, DestinationsListComponent, HomeComponent],
+  declarations: [AppComponent, MainComponent, DestinationsListComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CoreModule,
     SharedModule,
+    UserModule,
     HttpClientModule,
   ],
   providers: [],
