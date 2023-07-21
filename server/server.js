@@ -1338,7 +1338,7 @@
                 '_ownerId': '35c62d76-8152-4626-8712-eeb96381bea8',
                 'title': 'London',
                 'description': 'Feyre\'s survival rests upon her ability to hunt and kill – the forest where she lives is a cold, bleak place in the long winter months. So when she spots a deer in the forest being pursued by a wolf, she cannot resist fighting it for the flesh. But to do so, she must kill the predator and killing something so precious comes at a price ...',
-                'imageUrl': '../trip-forum/src/assets/images/London.jpg',
+                'imageUrl': 'https://images.ctfassets.net/bguk4g2zwmps/01P63pQ6finbFwRzcnJyT5/fef2459e294ec08c960acbc7320271e0/img-London-LG-2x.jpg',
                 'type': 'Town',
                 '_createdOn': 1617797078108
             },
@@ -1346,7 +1346,7 @@
                 '_ownerId': '35c62d76-8152-4626-8712-eeb96381bea8',
                 'title': 'Barselona',
                 'description': 'The year is 1945. Claire Randall, a former combat nurse, is just back from the war and reunited with her husband on a second honeymoon when she walks through a standing stone in one of the ancient circles that dot the British Isles. Suddenly she is a Sassenach—an “outlander”—in a Scotland torn by war and raiding border clans in the year of Our Lord...1743.',
-                'imageUrl': '../trip-forum/src/assets/images/Barcelona.jpg',
+                'imageUrl': 'https://img1.10bestmedia.com/Images/Photos/378847/GettyImages-1085317916_55_660x440.jpg',
                 'type': 'Town',
                 '_createdOn': 1617799443179
             },
@@ -1354,7 +1354,7 @@
                 '_ownerId': '847ec027-f659-4086-8032-5173e2f9c93a',
                 'title': 'Paris',
                 'description': 'The unforgettable novel of a childhood in a sleepy Southern town and the crisis of conscience that rocked it. "To Kill A Mockingbird" became both an instant bestseller and a critical success when it was first published in 1960. It went on to win the Pulitzer Prize in 1961 and was later made into an Academy Award-winning film, also a classic.',
-                'imageUrl': '../trip-forum/src/assets/images/Paris.jpg',
+                'imageUrl': 'https://media.istockphoto.com/id/635758088/photo/sunrise-at-the-eiffel-tower-in-paris-along-the-seine.jpg?s=612x612&w=0&k=20&c=rdy3aU1CDyh66mPyR5AAc1yJ0yEameR_v2vOXp2uuMM=',
                 'type': 'Town',
                 '_createdOn': 1617799658349
             }

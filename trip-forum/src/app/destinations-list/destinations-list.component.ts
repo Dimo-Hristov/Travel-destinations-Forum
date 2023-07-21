@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
+import { destination } from '../types/destination';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-destinations-list',
@@ -7,11 +9,20 @@ import { ApiService } from '../api.service';
   styleUrls: ['./destinations-list.component.css'],
 })
 export class DestinationsListComponent implements OnInit {
-  constructor(private apiService: ApiService) {}
+  destinationList: destination[] = [];
+
+  constructor(
+    private apiService: ApiService,
+    private sanitizer: DomSanitizer
+  ) {}
 
   ngOnInit(): void {
     this.apiService.getDestinations().subscribe((destinations) => {
-      console.log(destinations);
+      this.destinationList = destinations;
     });
+  }
+
+  sanitizeImageUrl(url: string): SafeResourceUrl {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 }

@@ -1,1 +1,18 @@
-<p>destinations-list works!</p>
+<section class="rec-places">
+  <header class="places-header">
+    <h2>Most famous places</h2>
+    <p>Recommended</p>
+  </header>
+
+  <div class="places-container">
+    <article *ngFor="let destination of destinationList">
+      <img [src]="sanitizeImageUrl(destination.imageUrl)" alt="Image" />
+      <h5>{{ destination.title }}</h5>
+      <p>
+        {{ destination.description }}
+      </p>
+
+      <a href="#">Discover place</a>
+    </article>
+  </div>
+</section>
