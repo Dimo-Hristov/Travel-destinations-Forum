@@ -10,6 +10,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 })
 export class DestinationsListComponent implements OnInit {
   destinationList: destination[] = [];
+  isLoading: boolean = true;
 
   constructor(
     private apiService: ApiService,
@@ -17,8 +18,15 @@ export class DestinationsListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.apiService.getDestinations().subscribe((destinations) => {
-      this.destinationList = destinations;
+    this.apiService.getDestinations().subscribe({
+      next: (destinations) => {
+        this.destinationList = destinations;
+        this.isLoading = false;
+      },
+      error: (err) => {
+        this.isLoading = false;
+        alert(err);
+      },
     });
   }
 

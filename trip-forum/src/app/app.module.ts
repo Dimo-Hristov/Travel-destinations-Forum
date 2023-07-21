@@ -7,10 +7,17 @@ import { CoreModule } from './core/core.module';
 import { MainComponent } from './main/main.component';
 import { DestinationsListComponent } from './destinations-list/destinations-list.component';
 import { HttpClientModule } from '@angular/common/http';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [AppComponent, MainComponent, DestinationsListComponent],
-  imports: [BrowserModule, AppRoutingModule, CoreModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    CoreModule,
+    SharedModule,
+    HttpClientModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
