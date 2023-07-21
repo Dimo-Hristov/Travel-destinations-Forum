@@ -32,11 +32,11 @@ body {
     padding: 0.5rem 2rem;
     font-weight: 500;
     border-radius: 1rem;
-    color: white;
 }
 
 .navbar ul li:last-child a {
     background-color: #370511;
+    color: white;
 }
 
 .intro {
