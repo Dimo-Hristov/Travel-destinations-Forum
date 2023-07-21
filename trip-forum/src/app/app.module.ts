@@ -8,9 +8,10 @@ import { MainComponent } from './main/main.component';
 import { DestinationsListComponent } from './destinations-list/destinations-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
-  declarations: [AppComponent, MainComponent, DestinationsListComponent],
+  declarations: [AppComponent, MainComponent, DestinationsListComponent, HomeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
