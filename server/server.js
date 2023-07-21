@@ -1338,24 +1338,24 @@
                 '_ownerId': '35c62d76-8152-4626-8712-eeb96381bea8',
                 'title': 'London',
                 'description': 'Feyre\'s survival rests upon her ability to hunt and kill – the forest where she lives is a cold, bleak place in the long winter months. So when she spots a deer in the forest being pursued by a wolf, she cannot resist fighting it for the flesh. But to do so, she must kill the predator and killing something so precious comes at a price ...',
-                'imageUrl': '/images/book1.png',
-                'type': 'Fiction',
+                'imageUrl': '../trip-forum/src/assets/images/London.jpg',
+                'type': 'Town',
                 '_createdOn': 1617797078108
             },
             '2949b54d-b163-4a00-b65c-41fb8b641561': {
                 '_ownerId': '35c62d76-8152-4626-8712-eeb96381bea8',
-                'title': 'Outlander',
+                'title': 'Barselona',
                 'description': 'The year is 1945. Claire Randall, a former combat nurse, is just back from the war and reunited with her husband on a second honeymoon when she walks through a standing stone in one of the ancient circles that dot the British Isles. Suddenly she is a Sassenach—an “outlander”—in a Scotland torn by war and raiding border clans in the year of Our Lord...1743.',
-                'imageUrl': '/images/book2.png',
-                'type': 'Other',
+                'imageUrl': '../trip-forum/src/assets/images/Barcelona.jpg',
+                'type': 'Town',
                 '_createdOn': 1617799443179
             },
             'f6f54fcd-0469-470b-8ffa-a33ae6c7a524': {
                 '_ownerId': '847ec027-f659-4086-8032-5173e2f9c93a',
-                'title': 'To Kill a Mockingbird',
+                'title': 'Paris',
                 'description': 'The unforgettable novel of a childhood in a sleepy Southern town and the crisis of conscience that rocked it. "To Kill A Mockingbird" became both an instant bestseller and a critical success when it was first published in 1960. It went on to win the Pulitzer Prize in 1961 and was later made into an Academy Award-winning film, also a classic.',
-                'imageUrl': '/images/book3.png',
-                'type': 'Classic',
+                'imageUrl': '../trip-forum/src/assets/images/Paris.jpg',
+                'type': 'Town',
                 '_createdOn': 1617799658349
             }
         },
