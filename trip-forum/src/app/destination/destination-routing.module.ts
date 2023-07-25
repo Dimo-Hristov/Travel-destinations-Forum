@@ -2,10 +2,24 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MainComponent } from '../main/main.component';
 import { AddDestinationComponent } from './add-destination/add-destination.component';
+import { CurrentDestinationComponent } from './current-destination/current-destination.component';
 
 const routes: Routes = [
-  { path: 'destinations', component: MainComponent },
   { path: 'add-destination', component: AddDestinationComponent },
+  {
+    path: 'destinations',
+    children: [
+      {
+        path: '',
+        pathMatch: 'full',
+        component: MainComponent,
+      },
+      {
+        path: ':destinationId',
+        component: CurrentDestinationComponent,
+      },
+    ],
+  },
 ];
 
 @NgModule({

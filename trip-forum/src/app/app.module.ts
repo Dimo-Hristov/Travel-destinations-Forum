@@ -9,6 +9,7 @@ import { DestinationsListComponent } from './destinations-list/destinations-list
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
 import { UserModule } from './user/user.module';
+import { DestinationModule } from './destination/destination.module';
 
 @NgModule({
   declarations: [AppComponent, MainComponent, DestinationsListComponent],
@@ -19,6 +20,7 @@ import { UserModule } from './user/user.module';
     SharedModule,
     UserModule,
     HttpClientModule,
+    DestinationModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
