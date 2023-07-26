@@ -1,29 +1,36 @@
 import { Injectable } from '@angular/core';
 
-const USER_KEY = '[user]';
-
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
   user: any | undefined;
+  USER_KEY = '[user]';
 
   get isLogged(): boolean {
-    return !!this.isLogged;
+    return !!this.user;
   }
 
   constructor() {
     try {
-      const lsUSer = localStorage.getItem(USER_KEY) || '';
+      const lsUSer = localStorage.getItem(this.USER_KEY) || '';
       this.user = JSON.parse(lsUSer);
     } catch (error) {
       this.user = undefined;
     }
   }
 
-  login(): void {}
+  login(): void {
+    this.user = {
+      email: 'peter@abv.bg',
+      password: '123456',
+    };
+
+    localStorage.setItem(this.USER_KEY, JSON.stringify(this.user));
+  }
+
   logout(): void {
     this.user = undefined;
-    localStorage.removeItem(USER_KEY);
+    localStorage.removeItem(this.USER_KEY);
   }
 }
