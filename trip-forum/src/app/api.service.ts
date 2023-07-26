@@ -9,6 +9,12 @@ import { destination } from './types/destination';
 export class ApiService {
   constructor(private http: HttpClient) {}
 
+  getDestination(id: string) {
+    const { appUrl } = environment;
+
+    return this.http.get<destination>(`${appUrl}/destinations/${id}`);
+  }
+
   getDestinations() {
     const { appUrl } = environment;
 
