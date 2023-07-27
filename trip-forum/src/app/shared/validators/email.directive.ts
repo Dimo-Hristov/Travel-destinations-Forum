@@ -1,10 +1,13 @@
 import { Directive } from '@angular/core';
+import { Validator, ValidationErrors, AbstractControl } from '@angular/forms';
 
 @Directive({
-  selector: '[appEmail]'
+  selector: '[appEmail]',
 })
-export class EmailDirective {
+export class EmailDirective implements Validator {
+  constructor() {}
 
-  constructor() { }
-
+  validate(control: AbstractControl<any, any>): ValidationErrors | null {
+    return null;
+  }
 }
