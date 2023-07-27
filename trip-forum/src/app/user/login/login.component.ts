@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { UserService } from '../user.service';
-import { ApiService } from 'src/app/api.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -10,10 +10,11 @@ import { ApiService } from 'src/app/api.service';
 export class LoginComponent {
   constructor(private userService: UserService) {}
 
-  login(email: string, password: string): void {
-    //for now we are not handling the data
-    this.userService.login(email, password).subscribe((res) => {
-      localStorage.setItem('user', JSON.stringify(res));
-    });
+  loginHandler(form: NgForm): void {
+    console.log(form.value);
+
+    // this.userService.login(email, password).subscribe((res) => {
+    //   localStorage.setItem('user', JSON.stringify(res));
+    // });
   }
 }

@@ -1,8 +1,34 @@
-<form #form="ngForm">
+<form #form="ngForm" (ngSubmit)="loginHandler(form)">
   <label for="email">Email</label>
-  <input type="text" id="email" name="email" #inputEmail />
-  <label for="password">Password</label>
-  <input type="text" id="password" name="password" #inputPassword />
+  <input
+    type="text"
+    id="email"
+    name="email"
+    ngModel
+    required
+    #inputEmail="ngModel"
+  />
 
-  <button (click)="login(inputEmail.value, inputPassword.value)">Login</button>
+  <ng-container *ngIf="inputEmail.touched">
+    <p class="error" *ngIf="inputEmail.errors?.['required']">
+      Email is required
+    </p>
+  </ng-container>
+
+  <label for="password">Password</label>
+  <input
+    type="text"
+    id="password"
+    name="password"
+    ngModel
+    required
+    #inputPassword="ngModel"
+  />
+  <ng-container *ngIf="inputPassword.touched">
+    <p class="error" *ngIf="inputPassword.errors?.['required']">
+      Password is required
+    </p>
+  </ng-container>
+
+  <button>Login</button>
 </form>
