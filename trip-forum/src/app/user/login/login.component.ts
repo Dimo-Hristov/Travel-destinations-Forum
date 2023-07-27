@@ -17,7 +17,7 @@ export class LoginComponent {
 
     this.userService.login(email, password).subscribe((res) => {
       localStorage.setItem('user', JSON.stringify(res));
+      this.router.navigate(['/home']);
     });
-    this.router.navigate(['/home']);
   }
 }

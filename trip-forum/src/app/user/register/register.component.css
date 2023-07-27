@@ -1,0 +1,41 @@
+.register{
+
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+   
+}
+
+.register h2 {
+    margin-bottom: 15px;
+    border-radius: 16px;
+    padding: 0 8px 0 8px;
+}
+
+.register button {
+    margin-top: 32px;
+    padding: 8px 32px;
+    font-weight: bold;
+    color: white;
+}
+
+.register label {
+    margin-top: 16px;
+}
+
+
+.registerForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 20%;
+    height: 90%;
+    padding: 20px;
+    color: whitesmoke;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 16px;
+    letter-spacing: 3px;
+}

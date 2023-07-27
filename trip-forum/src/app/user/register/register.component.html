@@ -1,1 +1,50 @@
-<p>register works!</p>
+<div class="register">
+  <form class="registerForm" #form="ngForm" (ngSubmit)="registerHandler(form)">
+    <h2>Register</h2>
+
+    <label for="email">Email</label>
+    <input
+      type="text"
+      id="email"
+      name="email"
+      ngModel
+      required
+      #inputEmail="ngModel"
+      appEmail
+    />
+
+    <ng-container *ngIf="inputEmail.touched">
+      <p *ngIf="inputEmail.errors?.['required']">Email is required</p>
+    </ng-container>
+
+    <label for="password">Password</label>
+    <input
+      type="text"
+      id="password"
+      name="password"
+      ngModel
+      required
+      #inputPassword="ngModel"
+    />
+    <ng-container *ngIf="inputPassword.touched">
+      <p *ngIf="inputPassword.errors?.['required']">Password is required</p>
+    </ng-container>
+
+    <label for="password">Repeat password</label>
+    <input
+      type="text"
+      id="rePassword"
+      name="rePassword"
+      ngModel
+      required
+      #inputrePassword="ngModel"
+    />
+    <ng-container *ngIf="inputrePassword.touched">
+      <p *ngIf="inputrePassword.errors?.['required']">
+        Repeat password is required
+      </p>
+    </ng-container>
+
+    <button [disabled]="form.invalid">Register</button>
+  </form>
+</div>

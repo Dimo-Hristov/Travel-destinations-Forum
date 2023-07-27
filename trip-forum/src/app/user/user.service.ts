@@ -32,7 +32,14 @@ export class UserService {
   };
 
   login(email: string, password: string): Observable<any> {
-    return this.http.post(`http://localhost:3030/users/login`, {
+    return this.http.post(`${this.appUrl}${this.endpoints.login}`, {
+      email: email,
+      password: password,
+    });
+  }
+
+  register(email: string, password: string): Observable<any> {
+    return this.http.post(`${this.appUrl}${this.endpoints.register}`, {
       email: email,
       password: password,
     });
