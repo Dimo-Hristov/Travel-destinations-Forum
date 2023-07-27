@@ -1,35 +1,35 @@
-<form #form="ngForm" (ngSubmit)="loginHandler(form)">
-  <label for="email">Email</label>
-  <input
-    type="text"
-    id="email"
-    name="email"
-    ngModel
-    required
-    #inputEmail="ngModel"
-    appEmail
-  />
+<div class="login">
+  <form class="loginForm" #form="ngForm" (ngSubmit)="loginHandler(form)">
+    <h2>Have an acccount?</h2>
 
-  <ng-container *ngIf="inputEmail.touched">
-    <p class="error" *ngIf="inputEmail.errors?.['required']">
-      Email is required
-    </p>
-  </ng-container>
+    <label for="email">Email</label>
+    <input
+      type="text"
+      id="email"
+      name="email"
+      ngModel
+      required
+      #inputEmail="ngModel"
+      appEmail
+    />
 
-  <label for="password">Password</label>
-  <input
-    type="text"
-    id="password"
-    name="password"
-    ngModel
-    required
-    #inputPassword="ngModel"
-  />
-  <ng-container *ngIf="inputPassword.touched">
-    <p class="error" *ngIf="inputPassword.errors?.['required']">
-      Password is required
-    </p>
-  </ng-container>
+    <ng-container *ngIf="inputEmail.touched">
+      <p *ngIf="inputEmail.errors?.['required']">Email is required</p>
+    </ng-container>
 
-  <button [disabled]="form.invalid">Login</button>
-</form>
+    <label for="password">Password</label>
+    <input
+      type="text"
+      id="password"
+      name="password"
+      ngModel
+      required
+      #inputPassword="ngModel"
+    />
+    <ng-container *ngIf="inputPassword.touched">
+      <p *ngIf="inputPassword.errors?.['required']">Password is required</p>
+    </ng-container>
+
+    <button [disabled]="form.invalid">Login</button>
+  </form>
+</div>
