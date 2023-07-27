@@ -17,6 +17,10 @@
       </p>
 
       <a [routerLink]="destination._id">Discover place</a>
+
+      <div class="mark" *ngIf="isLogged">
+        <p>Not visited</p>
+      </div>
     </article>
   </div>
 </section>

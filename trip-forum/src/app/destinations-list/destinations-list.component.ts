@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { destination } from '../types/destination';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { UserService } from '../user/user.service';
 
 @Component({
   selector: 'app-destinations-list',
@@ -14,7 +15,8 @@ export class DestinationsListComponent implements OnInit {
 
   constructor(
     private apiService: ApiService,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private userService: UserService
   ) {}
 
   ngOnInit(): void {
@@ -32,5 +34,9 @@ export class DestinationsListComponent implements OnInit {
 
   sanitizeImageUrl(url: string): SafeResourceUrl {
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
+
+  get isLogged(): boolean {
+    return this.userService.isLogged;
   }
 }

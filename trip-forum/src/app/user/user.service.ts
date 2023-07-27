@@ -1,17 +1,20 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment.development';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  user: any | undefined;
-  USER_KEY = '[user]';
+  private user: any | undefined;
+  private USER_KEY = 'user';
 
   get isLogged(): boolean {
     return !!this.user;
   }
 
-  constructor() {
+  constructor(private http: HttpClient) {
     try {
       const lsUSer = localStorage.getItem(this.USER_KEY) || '';
       this.user = JSON.parse(lsUSer);
@@ -20,13 +23,19 @@ export class UserService {
     }
   }
 
-  login(): void {
-    this.user = {
-      email: 'peter@abv.bg',
-      password: '123456',
-    };
+  private appUrl = environment.appUrl;
 
-    localStorage.setItem(this.USER_KEY, JSON.stringify(this.user));
+  private endpoints = {
+    login: '/users/login',
+    register: '/users/register',
+    logout: '/users/logout',
+  };
+
+  login(email: string, password: string): Observable<any> {
+    return this.http.post(`http://localhost:3030/users/login`, {
+      email: email,
+      password: password,
+    });
   }
 
   logout(): void {

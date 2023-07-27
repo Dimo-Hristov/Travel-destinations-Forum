@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
 import { destination } from 'src/app/types/destination';
@@ -13,7 +14,8 @@ export class CurrentDestinationComponent implements OnInit {
 
   constructor(
     private apiService: ApiService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private sanitizer: DomSanitizer
   ) {}
 
   ngOnInit(): void {
@@ -24,7 +26,10 @@ export class CurrentDestinationComponent implements OnInit {
     const id = this.activatedRoute.snapshot.params['destinationId'];
     this.apiService.getDestination(id).subscribe((destination) => {
       this.destination = destination;
-      console.log(destination);
     });
+  }
+
+  sanitizeImageUrl(url: string): SafeResourceUrl {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 }
