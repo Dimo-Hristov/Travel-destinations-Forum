@@ -1,0 +1,54 @@
+.destination{
+
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+   
+}
+
+.destination h2 {
+    margin-bottom: 15px;
+    border-radius: 16px;
+    padding: 0 8px 0 8px;
+}
+
+.destination button {
+    margin-top: 32px;
+    padding: 8px 32px;
+    font-weight: bold;
+    color: white;
+}
+
+.destination label {
+    margin-top: 16px;
+}
+
+
+.destinationForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 20%;
+    height: 90%;
+    padding: 20px;
+    color: whitesmoke;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 16px;
+    letter-spacing: 3px;
+}
+
+.destinationForm .type {
+    margin-top: 32px;
+    text-align: center;
+}
+
+.destinationForm h3 {
+    margin: 8px;
+}
+
+.destinationForm label{
+    margin-left: 22px;
+}

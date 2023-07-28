@@ -11,7 +11,7 @@
   <div class="places-container" *ngIf="!isLoading">
     <article *ngFor="let destination of destinationList">
       <img [src]="sanitizeImageUrl(destination.imageUrl)" alt="Image" />
-      <h5>{{ destination.title }}</h5>
+      <h5>{{ destination.destination }}</h5>
       <p>
         {{ destination.description }}
       </p>

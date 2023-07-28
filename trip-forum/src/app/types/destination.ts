@@ -1,5 +1,5 @@
 export interface destination {
-  title: string;
+  destination: string;
   description: string;
   imageUrl: string;
   type: string;

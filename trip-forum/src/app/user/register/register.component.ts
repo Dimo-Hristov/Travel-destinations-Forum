@@ -30,10 +30,23 @@ export class RegisterComponent {
   ) {}
 
   registerHandler(): void {
-    console.log(this.form.value);
+    if (this.form.invalid) {
+      return;
+    }
 
-    // this.userService.register(email, password).subscribe((res) => {
-    //   this.router.navigate(['/login']);
-    // });
+    const form = this.form.value;
+    const email = form.email;
+    const password = form.passGroup?.password;
+
+    if (email && password) {
+      this.userService.register(email, password).subscribe(
+        (res) => {
+          this.router.navigate(['/login']);
+        },
+        (error) => {
+          error.message;
+        }
+      );
+    }
   }
 }

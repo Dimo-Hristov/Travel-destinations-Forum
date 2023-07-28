@@ -1,1 +1,86 @@
-<p>add-destination works!</p>
+<div class="destination">
+  <form
+    class="destinationForm"
+    #form="ngForm"
+    (ngSubmit)="addDestinationHandler(form)"
+  >
+    <h2>Add a new destination</h2>
+
+    <label for="imageUrl">Image url</label>
+    <input
+      type="url"
+      id="imageUrl"
+      name="imageUrl"
+      ngModel
+      required
+      #inputimageUrl="ngModel"
+    />
+
+    <!-- <ng-container *ngIf="inputEmail.touched">
+      <p *ngIf="inputEmail.errors?.['required']">Email is required</p>
+    </ng-container> -->
+
+    <label for="destination">Destination</label>
+    <input
+      type="text"
+      id="destination"
+      name="destination"
+      ngModel
+      required
+      #inputDestination="ngModel"
+    />
+
+    <!-- <ng-container *ngIf="inputPassword.touched">
+      <p *ngIf="inputPassword.errors?.['required']">Password is required</p>
+    </ng-container> -->
+
+    <label for="description">Description</label>
+    <input
+      type="text"
+      id="description"
+      name="description"
+      ngModel
+      required
+      #inputDescription="ngModel"
+    />
+
+    <div class="type">
+      <h3>Select destination type</h3>
+
+      <label for="town">Town</label>
+      <input
+        type="radio"
+        id="town"
+        name="destination"
+        value="Town"
+        ngModel
+        required
+        #inputType="ngModel"
+      />
+
+      <label for="beach">Beach</label>
+      <input
+        type="radio"
+        id="beach"
+        name="destination"
+        value="Beach"
+        ngModel
+        required
+        #inputType="ngModel"
+      />
+
+      <label for="mountain">Mountain</label>
+      <input
+        type="radio"
+        id="mountain"
+        name="destination"
+        value="mountain"
+        ngModel
+        required
+        #inputType="ngModel"
+      />
+    </div>
+
+    <button [disabled]="form.invalid">Add new destination</button>
+  </form>
+</div>
