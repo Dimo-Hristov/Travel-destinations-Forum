@@ -4,7 +4,6 @@
 
     <ul role="list">
       <li><a routerLink="/home">Home</a></li>
-      <li><a routerLink="/destinations">Destinations</a></li>
 
       <div class="login-register" *ngIf="!isLoggedIn">
         <li><a routerLink="/login">Login</a></li>
@@ -16,7 +15,7 @@
         <li><a (click)="logout()">Logout</a></li>
       </div>
 
-      <li><a href="#">Explore places</a></li>
+      <li><a routerLink="/destinations">Explore places</a></li>
     </ul>
   </nav>
 

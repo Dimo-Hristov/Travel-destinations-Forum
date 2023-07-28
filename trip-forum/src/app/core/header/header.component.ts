@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { disableDebugTools } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/user/user.service';
 

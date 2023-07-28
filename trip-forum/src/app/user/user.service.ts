@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class UserService {
-  private user: any | undefined;
+  public user: any | undefined;
   private USER_KEY = 'user';
 
   get isLogged(): boolean {
