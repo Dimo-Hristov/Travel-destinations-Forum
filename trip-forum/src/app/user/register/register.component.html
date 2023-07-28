@@ -20,9 +20,16 @@
         name="password"
         formControlName="password"
       />
-      <!-- <ng-container *ngIf="inputPassword.touched">
-          <p *ngIf="inputPassword.errors?.['required']">Password is required</p>
-        </ng-container> -->
+      <ng-container *ngIf="form.get('passGroup')?.get('password')?.touched">
+        <p *ngIf="form.get('passGroup')?.get('password')?.errors?.['required']">
+          Password is required
+        </p>
+        <p
+          *ngIf="form.get('passGroup')?.get('password')?.errors?.['minlength']"
+        >
+          Password should be at least 5 sumbols!
+        </p>
+      </ng-container>
 
       <label for="password">Repeat password</label>
       <input
@@ -31,16 +38,22 @@
         name="rePassword"
         formControlName="rePassword"
       />
-      <!-- <ng-container *ngIf="inputrePassword.touched">
-          <p *ngIf="inputrePassword.errors?.['required']">
-            Repeat password is required
-          </p>
-        </ng-container> -->
+      <ng-container *ngIf="form.get('passGroup')?.get('rePassword')?.touched">
+        <p
+          *ngIf="form.get('passGroup')?.get('rePassword')?.errors?.['required']"
+        >
+          Repeat password is required
+        </p>
+        <p
+          *ngIf="form.get('passGroup')?.get('rePassword')?.errors?.['minlength']"
+        >
+          Repeat password should be at least 5 sumbols!
+        </p>
+        <p *ngIf="form.get('passGroup')?.errors?.['passwordsValidator']">
+          Passwords do not match!
+        </p>
+      </ng-container>
     </ng-container>
-
-    <div>
-      {{ form.value | json }}
-    </div>
 
     <button [disabled]="form.invalid">Register</button>
   </form>
