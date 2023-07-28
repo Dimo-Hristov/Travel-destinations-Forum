@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
-import { NgForm } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -9,15 +9,30 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent {
-  constructor(private userService: UserService, private router: Router) {}
+  form = this.fb.group({
+    email: ['', [Validators.required, Validators.minLength(5)]],
+    passGroup: this.fb.group(
+      {
+        password: ['', [Validators.required, Validators.minLength(5)]],
+        rePassword: ['', [Validators.required, Validators.minLength(5)]],
+      },
+      {
+        validators: [],
+      }
+    ),
+  });
 
-  registerHandler(form: NgForm): void {
-    const email = form.value.email;
-    const password = form.value.password;
-    const rePassword = form.value.rePassword;
+  constructor(
+    private userService: UserService,
+    private router: Router,
+    private fb: FormBuilder
+  ) {}
 
-    this.userService.register(email, password).subscribe((res) => {
-      this.router.navigate(['/login']);
-    });
+  registerHandler(): void {
+    console.log(this.form.value);
+
+    // this.userService.register(email, password).subscribe((res) => {
+    //   this.router.navigate(['/login']);
+    // });
   }
 }
