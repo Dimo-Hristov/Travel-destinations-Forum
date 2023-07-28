@@ -12,23 +12,15 @@ export class AddDestinationComponent {
   constructor(private userService: UserService, private router: Router) {}
 
   addDestinationHandler(form: NgForm): void {
-    const email = form.value.email;
-    const password = form.value.password;
-
-    this.userService.login(email, password).subscribe(
-      (res) => {
-        localStorage.setItem('user', JSON.stringify(res));
-        this.router.navigate(['/home']);
-        this.userService.user = res;
-      },
-      (error) => {
-        if (error.status === 403) {
-          alert('Invalid email or password!');
-        } else {
-          alert(error.message);
-        }
-      }
-    );
+    const formData = form.value;
+    const destination = formData.destination;
+    const imageUrl = formData.imageUrl;
+    const description = formData.description;
+    const type = formData.type;
+    console.log(destination);
+    console.log(imageUrl);
+    console.log(description);
+    console.log(type);
   }
 
   get isLoggedIn(): boolean {

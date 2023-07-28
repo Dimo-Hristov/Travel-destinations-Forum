@@ -6,20 +6,6 @@
   >
     <h2>Add a new destination</h2>
 
-    <label for="imageUrl">Image url</label>
-    <input
-      type="url"
-      id="imageUrl"
-      name="imageUrl"
-      ngModel
-      required
-      #inputimageUrl="ngModel"
-    />
-
-    <!-- <ng-container *ngIf="inputEmail.touched">
-      <p *ngIf="inputEmail.errors?.['required']">Email is required</p>
-    </ng-container> -->
-
     <label for="destination">Destination</label>
     <input
       type="text"
@@ -30,9 +16,25 @@
       #inputDestination="ngModel"
     />
 
-    <!-- <ng-container *ngIf="inputPassword.touched">
-      <p *ngIf="inputPassword.errors?.['required']">Password is required</p>
-    </ng-container> -->
+    <ng-container *ngIf="inputDestination.touched">
+      <p *ngIf="inputDestination.errors?.['required']">
+        Destination is required
+      </p>
+    </ng-container>
+
+    <label for="imageUrl">Image url</label>
+    <input
+      type="url"
+      id="imageUrl"
+      name="imageUrl"
+      ngModel
+      required
+      #inputimageUrl="ngModel"
+    />
+
+    <ng-container *ngIf="inputimageUrl.touched">
+      <p *ngIf="inputimageUrl.errors?.['required']">Image Url is required</p>
+    </ng-container>
 
     <label for="description">Description</label>
     <input
@@ -44,14 +46,20 @@
       #inputDescription="ngModel"
     />
 
+    <ng-container *ngIf="inputDescription.touched">
+      <p *ngIf="inputDescription.errors?.['required']">
+        Description is required
+      </p>
+    </ng-container>
+
     <div class="type">
       <h3>Select destination type</h3>
 
-      <label for="town">Town</label>
+      <label for="type">Town</label>
       <input
         type="radio"
         id="town"
-        name="destination"
+        name="type"
         value="Town"
         ngModel
         required
@@ -62,7 +70,7 @@
       <input
         type="radio"
         id="beach"
-        name="destination"
+        name="type"
         value="Beach"
         ngModel
         required
@@ -73,8 +81,8 @@
       <input
         type="radio"
         id="mountain"
-        name="destination"
-        value="mountain"
+        name="type"
+        value="Mountain"
         ngModel
         required
         #inputType="ngModel"
