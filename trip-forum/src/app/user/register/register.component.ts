@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
+import { passwordsValidator } from 'src/app/shared/validators/match-passwords-validator';
 
 @Component({
   selector: 'app-register',
@@ -17,7 +18,7 @@ export class RegisterComponent {
         rePassword: ['', [Validators.required, Validators.minLength(5)]],
       },
       {
-        validators: [],
+        validators: [passwordsValidator('password', 'rePassword')],
       }
     ),
   });
