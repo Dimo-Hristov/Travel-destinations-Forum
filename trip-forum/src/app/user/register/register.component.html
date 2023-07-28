@@ -5,9 +5,12 @@
     <label for="email">Email</label>
     <input type="text" id="email" name="email" formControlName="email" />
 
-    <!-- <ng-container *ngIf="inputEmail.touched">
-      <p *ngIf="inputEmail.errors?.['required']">Email is required</p>
-    </ng-container> -->
+    <ng-container *ngIf="form.get('email')?.touched">
+      <p *ngIf="form.get('email')?.errors?.['required']">Email is required!</p>
+      <p *ngIf="form.get('email')?.errors?.['minlength']">
+        Email sould be at least 5 symbols
+      </p>
+    </ng-container>
 
     <ng-container formGroupName="passGroup">
       <label for="password">Password</label>
@@ -34,6 +37,10 @@
           </p>
         </ng-container> -->
     </ng-container>
+
+    <div>
+      {{ form.value | json }}
+    </div>
 
     <button [disabled]="form.invalid">Register</button>
   </form>
