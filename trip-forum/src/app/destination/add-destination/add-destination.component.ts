@@ -30,7 +30,7 @@ export class AddDestinationComponent {
 
     this.destinationService.addDestination(data).subscribe(
       (data) => {
-        this.router.navigate(['/home']);
+        this.router.navigate([`/destinations/${data._id}`]);
       },
       (error) => {
         console.log(error.message);
