@@ -13,7 +13,7 @@
   </button>
 
   <ng-container *ngIf="userId === destination._ownerId">
-    <button>edit</button>
+    <button (click)="editDestination()">edit</button>
     <button>delete</button>
   </ng-container>
 </section>

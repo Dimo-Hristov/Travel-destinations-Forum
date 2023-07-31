@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
 import { destination } from 'src/app/types/destination';
 import { UserService } from 'src/app/user/user.service';
@@ -23,7 +23,8 @@ export class CurrentDestinationComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private sanitizer: DomSanitizer,
     private userService: UserService,
-    private destinationService: DestinationService
+    private destinationService: DestinationService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -62,6 +63,16 @@ export class CurrentDestinationComponent implements OnInit {
           }
         }
       });
+  }
+
+  editDestination(): void {
+    const navigationExtras: NavigationExtras = {
+      state: {
+        destination: this.destination,
+      },
+    };
+
+    this.router.navigate(['/edit-destination']);
   }
 
   sanitizeImageUrl(url: string): SafeResourceUrl {
