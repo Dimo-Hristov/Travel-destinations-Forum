@@ -61,4 +61,19 @@ export class DestinationService {
       `${this.appUrl}${this.endPoints.likesList1}${destinationId}${this.endPoints.likesList2}`
     );
   }
+
+  editDestination(destinationId: string, data: object): Observable<any> {
+    const accessToken = this.userService.user.accessToken;
+    const headers = new HttpHeaders({
+      'content-type': 'application/json',
+      'X-Authorization': accessToken,
+    });
+
+    debugger;
+    return this.http.put(
+      `${this.appUrl}${this.endPoints.edit}${destinationId}`,
+      JSON.stringify(data),
+      { headers }
+    );
+  }
 }

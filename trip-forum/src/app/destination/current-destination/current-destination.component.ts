@@ -66,18 +66,13 @@ export class CurrentDestinationComponent implements OnInit {
   }
 
   editDestination(): void {
-    const navigationExtras: NavigationExtras = {
-      state: {
-        destination: this.destination,
-      },
-    };
-
     this.router.navigate(['/edit-destination'], {
       queryParams: {
         destination: this.destination?.destination,
         imageUrl: this.destination?.imageUrl,
         description: this.destination?.description,
         type: this.destination?.type,
+        _id: this.destinationId,
       },
     });
   }
