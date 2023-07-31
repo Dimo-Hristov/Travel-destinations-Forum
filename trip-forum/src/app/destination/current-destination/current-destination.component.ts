@@ -12,7 +12,7 @@ import { DestinationService } from '../destination.service';
   styleUrls: ['./current-destination.component.css'],
 })
 export class CurrentDestinationComponent implements OnInit {
-  destination: destination | undefined;
+  public destination: destination | undefined;
   userId: string = '';
   counts: any;
   destinationId: string = this.activatedRoute.snapshot.params['destinationId'];
@@ -72,7 +72,14 @@ export class CurrentDestinationComponent implements OnInit {
       },
     };
 
-    this.router.navigate(['/edit-destination']);
+    this.router.navigate(['/edit-destination'], {
+      queryParams: {
+        destination: this.destination?.destination,
+        imageUrl: this.destination?.imageUrl,
+        description: this.destination?.description,
+        type: this.destination?.type,
+      },
+    });
   }
 
   sanitizeImageUrl(url: string): SafeResourceUrl {
