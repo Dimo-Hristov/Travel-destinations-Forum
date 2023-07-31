@@ -33,7 +33,7 @@ export class AddDestinationComponent {
         this.router.navigate([`/destinations/${data._id}`]);
       },
       (error) => {
-        console.log(error.message);
+        alert(error.message);
       }
     );
   }

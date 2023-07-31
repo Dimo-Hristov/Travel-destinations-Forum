@@ -3,6 +3,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
 import { destination } from 'src/app/types/destination';
+import { UserService } from 'src/app/user/user.service';
 
 @Component({
   selector: 'app-current-destination',
@@ -11,15 +12,18 @@ import { destination } from 'src/app/types/destination';
 })
 export class CurrentDestinationComponent implements OnInit {
   destination: destination | undefined;
+  userId: string = '';
 
   constructor(
     private apiService: ApiService,
     private activatedRoute: ActivatedRoute,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private userService: UserService
   ) {}
 
   ngOnInit(): void {
     this.fetchDestination();
+    this.userId = this.userService.user?._id;
   }
 
   fetchDestination(): void {

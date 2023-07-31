@@ -4,4 +4,9 @@
   <h3>{{ destination.type }} trip</h3>
   <p>{{ destination.description }}</p>
   <button>Visit</button>
+
+  <ng-container *ngIf="userId === destination._ownerId">
+    <button>edit</button>
+    <button>delete</button>
+  </ng-container>
 </section>
