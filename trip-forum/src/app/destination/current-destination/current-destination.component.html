@@ -3,7 +3,16 @@
   <img [src]="sanitizeImageUrl(destination.imageUrl)" alt="Image" />
   <h3>{{ destination.type }} trip</h3>
   <p>{{ destination.description }}</p>
-  <button>Visit</button>
+
+  <button
+    class="likeBtn"
+    [disabled]="isLikeButtonDisabled"
+    (click)="likeDestinationHandler()"
+  >
+    Like
+  </button>
+
+  <p>counts:</p>
 
   <ng-container *ngIf="userId === destination._ownerId">
     <button>edit</button>
