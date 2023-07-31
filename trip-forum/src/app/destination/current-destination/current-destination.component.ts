@@ -29,7 +29,7 @@ export class CurrentDestinationComponent implements OnInit {
   ngOnInit(): void {
     this.fetchDestination();
     this.userId = this.userService.user?._id;
-    this.getLikes(this.destinationId);
+    this.getLikesList(this.destinationId);
   }
 
   fetchDestination(): void {
@@ -48,11 +48,19 @@ export class CurrentDestinationComponent implements OnInit {
       });
   }
 
-  getLikes(destinationId: string): any {
+  getLikesList(destinationId: string): any {
     this.destinationService
-      .getDestinationLikes(destinationId)
+      .getDestinationLikesList(destinationId)
       .subscribe((likesList) => {
         console.log(likesList);
+
+        for (const like of likesList) {
+          debugger;
+          if (like._ownerId === this.destination?._ownerId) {
+            this.isLikeButtonDisabled = true;
+            return;
+          }
+        }
       });
   }
 

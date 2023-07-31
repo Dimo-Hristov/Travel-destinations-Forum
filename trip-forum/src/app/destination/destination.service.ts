@@ -19,8 +19,8 @@ export class DestinationService {
     search1: '/data/fruits?where=name%20LIKE%20%22',
     search2: '%22',
     like: '/data/likes',
-    likes1: '/data/likes?where=albumId%3D%22',
-    likes2: '%22&distinct=_ownerId&count',
+    likesList1: '/data/likes?where=albumId%3D%22',
+    likesList2: '%22&distinct=_ownerId',
   };
 
   constructor(private http: HttpClient, private userService: UserService) {}
@@ -56,9 +56,9 @@ export class DestinationService {
     );
   }
 
-  getDestinationLikes(destinationId: string): Observable<any> {
+  getDestinationLikesList(destinationId: string): Observable<any> {
     return this.http.get(
-      `${this.appUrl}${this.endPoints.likes1}${destinationId}${this.endPoints.likes2}`
+      `${this.appUrl}${this.endPoints.likesList1}${destinationId}${this.endPoints.likesList2}`
     );
   }
 }
