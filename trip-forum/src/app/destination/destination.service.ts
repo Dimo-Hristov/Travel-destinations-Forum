@@ -15,7 +15,7 @@ export class DestinationService {
     addDestination: '/data/destinations',
     details: '/data/destinations/',
     edit: '/data/destinations/',
-    deleteDestination: '/data/destinations/',
+    delete: '/data/destinations/',
     search1: '/data/fruits?where=name%20LIKE%20%22',
     search2: '%22',
     like: '/data/likes',
@@ -69,10 +69,22 @@ export class DestinationService {
       'X-Authorization': accessToken,
     });
 
-    debugger;
     return this.http.put(
       `${this.appUrl}${this.endPoints.edit}${destinationId}`,
       JSON.stringify(data),
+      { headers }
+    );
+  }
+
+  deleteDestination(destinationId: string): Observable<any> {
+    const accessToken = this.userService.user.accessToken;
+    const headers = new HttpHeaders({
+      'content-type': 'application/json',
+      'X-Authorization': accessToken,
+    });
+
+    return this.http.delete(
+      `${this.appUrl}${this.endPoints.delete}${destinationId}`,
       { headers }
     );
   }

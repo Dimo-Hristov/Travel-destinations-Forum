@@ -77,6 +77,20 @@ export class CurrentDestinationComponent implements OnInit {
     });
   }
 
+  deleteDestination() {
+    const isConfirmed = window.confirm(
+      'Are you sure you want to delete this destination?'
+    );
+
+    if (isConfirmed) {
+      this.destinationService
+        .deleteDestination(this.destinationId)
+        .subscribe((res) => {
+          this.router.navigate(['/home']);
+        });
+    }
+  }
+
   sanitizeImageUrl(url: string): SafeResourceUrl {
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
