@@ -18,6 +18,7 @@ export class DestinationService {
     deleteDestination: '/data/destinations/',
     search1: '/data/fruits?where=name%20LIKE%20%22',
     search2: '%22',
+    like: '/data/likes',
   };
 
   constructor(private http: HttpClient, private userService: UserService) {}
@@ -31,6 +32,23 @@ export class DestinationService {
 
     return this.http.post(
       `${this.appUrl}${this.endPoints.addDestination}`,
+      JSON.stringify(data),
+      { headers }
+    );
+  }
+
+  likeDestination(destinationId: string): Observable<any> {
+    const accessToken = this.userService.user.accessToken;
+    const headers = new HttpHeaders({
+      'content-type': 'application/json',
+      'X-Authorization': accessToken,
+    });
+    const data = {
+      destinationId: destinationId,
+    };
+
+    return this.http.post(
+      `${this.appUrl}${this.endPoints.like}`,
       JSON.stringify(data),
       { headers }
     );

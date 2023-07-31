@@ -33,6 +33,8 @@ export class CurrentDestinationComponent implements OnInit {
     });
   }
 
+  likeDestinationHandler(): void {}
+
   sanitizeImageUrl(url: string): SafeResourceUrl {
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
