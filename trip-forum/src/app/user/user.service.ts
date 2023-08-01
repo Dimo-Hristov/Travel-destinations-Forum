@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment.development';
 import { Observable } from 'rxjs';
 
@@ -46,7 +46,16 @@ export class UserService {
   }
 
   logout(): void {
-    this.user = undefined;
-    localStorage.removeItem(this.USER_KEY);
+    const accessToken = this.user.accessToken;
+    const headers = new HttpHeaders({
+      'content-type': 'application/json',
+      'X-Authorization': accessToken,
+    });
+    this.http
+      .get(`${this.appUrl}/users/logout`, { headers })
+      .subscribe((res) => {
+        this.user = undefined;
+        localStorage.removeItem(this.USER_KEY);
+      });
   }
 }
