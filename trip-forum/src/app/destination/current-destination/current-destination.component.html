@@ -9,9 +9,12 @@
     class="likeBtn"
     [disabled]="isLikeButtonDisabled"
     (click)="likeDestinationHandler()"
+    #likeButton
   >
     Like
   </button>
+
+  <p>{{ currentDestinationLikes }} Likes</p>
 
   <ng-container *ngIf="userId === destination._ownerId">
     <button (click)="editDestination()">edit</button>

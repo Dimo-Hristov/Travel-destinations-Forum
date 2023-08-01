@@ -11,16 +11,14 @@
   <div class="places-container" *ngIf="!isLoading">
     <article *ngFor="let destination of destinationList">
       <img [src]="sanitizeImageUrl(destination.imageUrl)" alt="Image" />
+
       <h5>{{ destination.destination }}</h5>
+
       <p>
         {{ destination.description }}
       </p>
 
       <a [routerLink]="destination._id">Discover place</a>
-
-      <div class="mark" *ngIf="isLogged">
-        <p>Not visited</p>
-      </div>
     </article>
   </div>
 </section>

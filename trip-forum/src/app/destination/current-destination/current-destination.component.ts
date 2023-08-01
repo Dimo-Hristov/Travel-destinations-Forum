@@ -17,6 +17,7 @@ export class CurrentDestinationComponent implements OnInit {
   counts: any;
   destinationId: string = this.activatedRoute.snapshot.params['destinationId'];
   isLikeButtonDisabled: boolean = false;
+  currentDestinationLikes: number = 0;
 
   constructor(
     private apiService: ApiService,
@@ -31,6 +32,7 @@ export class CurrentDestinationComponent implements OnInit {
     this.fetchDestination();
     this.userId = this.userService.user?._id;
     this.getLikesList(this.destinationId);
+    this.getDestinationLikes(this.destinationId);
   }
 
   fetchDestination(): void {
@@ -45,6 +47,7 @@ export class CurrentDestinationComponent implements OnInit {
     this.destinationService
       .likeDestination(this.destinationId)
       .subscribe((res) => {
+        this.currentDestinationLikes++;
         this.isLikeButtonDisabled = true;
       });
   }
@@ -53,8 +56,6 @@ export class CurrentDestinationComponent implements OnInit {
     this.destinationService
       .getDestinationLikesList(destinationId)
       .subscribe((likesList) => {
-        console.log(likesList);
-
         for (const like of likesList) {
           debugger;
           if (like._ownerId === this.userId) {
@@ -89,6 +90,14 @@ export class CurrentDestinationComponent implements OnInit {
           this.router.navigate(['/home']);
         });
     }
+  }
+
+  getDestinationLikes(destinationId: string) {
+    this.destinationService
+      .getDestinationLikesCount(destinationId)
+      .subscribe((res) => {
+        this.currentDestinationLikes = res;
+      });
   }
 
   sanitizeImageUrl(url: string): SafeResourceUrl {

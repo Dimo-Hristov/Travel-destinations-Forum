@@ -19,8 +19,11 @@ export class DestinationService {
     search1: '/data/fruits?where=name%20LIKE%20%22',
     search2: '%22',
     like: '/data/likes',
+    // put album id between 1 and 2
     likesList1: '/data/likes?where=albumId%3D%22',
     likesList2: '%22&distinct=_ownerId',
+    likeCount1: '/data/likes?where=albumId%3D%22',
+    likeCount2: '%22&distinct=_ownerId&count',
   };
 
   constructor(private http: HttpClient, private userService: UserService) {}
@@ -86,6 +89,12 @@ export class DestinationService {
     return this.http.delete(
       `${this.appUrl}${this.endPoints.delete}${destinationId}`,
       { headers }
+    );
+  }
+
+  getDestinationLikesCount(destinationId: string): Observable<number> {
+    return this.http.get<number>(
+      `${this.appUrl}${this.endPoints.likeCount1}${destinationId}${this.endPoints.likeCount2}`
     );
   }
 }
