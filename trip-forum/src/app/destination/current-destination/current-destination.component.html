@@ -5,6 +5,7 @@
   <p>{{ destination.description }}</p>
 
   <button
+    *ngIf="userId"
     class="likeBtn"
     [disabled]="isLikeButtonDisabled"
     (click)="likeDestinationHandler()"
