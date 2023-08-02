@@ -7,17 +7,18 @@ import { destination } from './types/destination';
   providedIn: 'root',
 })
 export class ApiService {
+  private appUrl = environment.appUrl;
   constructor(private http: HttpClient) {}
 
   getDestination(id: string) {
-    const { appUrl } = environment;
-
-    return this.http.get<destination>(`${appUrl}/data/destinations/${id}`);
+    return this.http.get<destination>(`${this.appUrl}/data/destinations/${id}`);
   }
 
   getDestinations() {
-    const { appUrl } = environment;
+    return this.http.get<destination[]>(`${this.appUrl}/data/destinations`);
+  }
 
-    return this.http.get<destination[]>(`${appUrl}/data/destinations`);
+  getAllLikes() {
+    return this.http.get(`${this.appUrl}/data/likes`);
   }
 }
