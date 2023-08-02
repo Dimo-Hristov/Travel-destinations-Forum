@@ -1,1 +1,23 @@
-<p>Recend liked destinations</p>
+<section class="rec-places">
+  <header class="places-header">
+    <h2>Recend liked</h2>
+  </header>
+
+  <div *ngIf="isLoading">
+    <app-loader />
+  </div>
+
+  <div class="places-container" *ngIf="!isLoading">
+    <article *ngFor="let destination of lastThreeLikedDestinations">
+      <img [src]="sanitizeImageUrl(destination.imageUrl)" alt="Image" />
+
+      <h5>{{ destination.destination }}</h5>
+
+      <p>
+        {{ destination.description }}
+      </p>
+
+      <!-- <a [routerLink]="destination._id">Discover place</a> -->
+    </article>
+  </div>
+</section>

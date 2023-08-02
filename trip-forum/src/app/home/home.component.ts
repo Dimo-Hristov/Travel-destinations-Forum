@@ -3,6 +3,7 @@ import { ApiService } from '../api.service';
 import { UserService } from '../user/user.service';
 import { destination } from '../types/destination';
 import { DestinationService } from '../destination/destination.service';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -13,9 +14,10 @@ export class HomeComponent implements OnInit {
   constructor(
     private apiService: ApiService,
     private userService: UserService,
-    private destinationService: DestinationService
+    private sanitizer: DomSanitizer
   ) {}
 
+  isLoading: boolean = true;
   lastThreeLikes: any = [];
   userId = this.userService.user._id;
   lastThreeLikedDestinations: destination[] = [];
@@ -47,8 +49,13 @@ export class HomeComponent implements OnInit {
     for (const like of likesArray) {
       this.apiService.getDestination(like.albumId).subscribe((res) => {
         this.lastThreeLikedDestinations.push(res);
+        this.isLoading = false;
       });
     }
     console.log(this.lastThreeLikedDestinations);
+  }
+
+  sanitizeImageUrl(url: string): SafeResourceUrl {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 }

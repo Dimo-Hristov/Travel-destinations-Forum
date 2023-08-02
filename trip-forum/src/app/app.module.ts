@@ -10,9 +10,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
 import { UserModule } from './user/user.module';
 import { DestinationModule } from './destination/destination.module';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
-  declarations: [AppComponent, MainComponent, DestinationsListComponent],
+  declarations: [
+    AppComponent,
+    MainComponent,
+    DestinationsListComponent,
+    HomeComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
