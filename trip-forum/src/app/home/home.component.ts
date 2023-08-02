@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { UserService } from '../user/user.service';
+import { destination } from '../types/destination';
+import { DestinationService } from '../destination/destination.service';
 
 @Component({
   selector: 'app-home',
@@ -10,11 +12,13 @@ import { UserService } from '../user/user.service';
 export class HomeComponent implements OnInit {
   constructor(
     private apiService: ApiService,
-    private userService: UserService
+    private userService: UserService,
+    private destinationService: DestinationService
   ) {}
 
-  userLikes: any = [];
+  lastThreeLikes: any = [];
   userId = this.userService.user._id;
+  lastThreeLikedDestinations: destination[] = [];
 
   ngOnInit(): void {
     this.getLikes();
@@ -31,11 +35,20 @@ export class HomeComponent implements OnInit {
   filterLikes(likesList: any) {
     for (const like of likesList) {
       if (this.userId === like._ownerId) {
-        this.userLikes.push(like);
+        this.lastThreeLikes.push(like);
       }
     }
 
-    this.userLikes = this.userLikes.slice(0, 3);
-    console.log(this.userLikes);
+    this.lastThreeLikes = this.lastThreeLikes.slice(-3);
+    this.getLastThreeDestinations(this.lastThreeLikes);
+  }
+
+  getLastThreeDestinations(likesArray: any) {
+    for (const like of likesArray) {
+      this.apiService.getDestination(like.albumId).subscribe((res) => {
+        this.lastThreeLikedDestinations.push(res);
+      });
+    }
+    console.log(this.lastThreeLikedDestinations);
   }
 }
