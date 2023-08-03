@@ -1,17 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, Renderer2 } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
 import { destination } from 'src/app/types/destination';
 import { UserService } from 'src/app/user/user.service';
 import { DestinationService } from '../destination.service';
+import { ScrollService } from '../scroll.service';
 
 @Component({
   selector: 'app-current-destination',
   templateUrl: './current-destination.component.html',
   styleUrls: ['./current-destination.component.css'],
 })
-export class CurrentDestinationComponent implements OnInit {
+export class CurrentDestinationComponent implements OnInit, OnDestroy {
   public destination: destination | undefined;
   userId: string = '';
   counts: any;
@@ -25,7 +26,8 @@ export class CurrentDestinationComponent implements OnInit {
     private sanitizer: DomSanitizer,
     private userService: UserService,
     private destinationService: DestinationService,
-    private router: Router
+    private router: Router,
+    private scrollService: ScrollService
   ) {}
 
   ngOnInit(): void {
@@ -33,6 +35,20 @@ export class CurrentDestinationComponent implements OnInit {
     this.userId = this.userService.user?._id;
     this.getLikesList(this.destinationId);
     this.getDestinationLikes(this.destinationId);
+    window.addEventListener('scroll', this.onScroll);
+  }
+
+  ngOnDestroy(): void {
+    window.removeEventListener('scroll', this.onScroll);
+  }
+
+  private onScroll = (): void => {
+    const scrollPosition = window.scrollY;
+    this.scrollService.setLastScrollPosition(scrollPosition);
+  };
+
+  goBack(): void {
+    this.scrollService.goBackWithAnimation();
   }
 
   fetchDestination(): void {
