@@ -52,7 +52,6 @@ export class HomeComponent implements OnInit {
         this.isLoading = false;
       });
     }
-    console.log(this.lastThreeLikedDestinations);
   }
 
   sanitizeImageUrl(url: string): SafeResourceUrl {

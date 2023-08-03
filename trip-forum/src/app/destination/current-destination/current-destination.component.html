@@ -13,7 +13,7 @@
       <p>{{ destination.description }}</p>
     </div>
 
-    <ul class="buttons" *ngIf="userId">
+    <ul class="buttons">
       <li>
         <button
           class="likeBtn"
@@ -21,6 +21,7 @@
           (click)="likeDestinationHandler()"
           #likeButton
           class="like-btn"
+          *ngIf="userId"
         >
           Like
         </button>
@@ -35,10 +36,9 @@
           </button>
         </li>
       </ng-container>
+      <li><button (click)="goBack()">Back</button></li>
     </ul>
 
-    <div class="back-button">
-      <button (click)="goBack()">Back</button>
-    </div>
+    <div class="buttons"></div>
   </div>
 </section>

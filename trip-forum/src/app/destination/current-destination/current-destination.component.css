@@ -51,7 +51,7 @@
     letter-spacing: 1px;
 }
 
-.buttons li button:hover{
+.buttons li button:hover {
     cursor: pointer;
     background-color: rgba(244, 247, 246, 0.8);
 }
@@ -70,5 +70,7 @@
     letter-spacing: 1px;
     font-weight: 500;
 }
+
+
 
 
