@@ -6,4 +6,5 @@ export interface destination {
   _ownerId: string;
   _createdOn: number;
   _id: string;
+  likes: number;
 }

@@ -51,6 +51,10 @@
     letter-spacing: 1px;
 }
 
+.buttons li .list-btn{
+    width: 200px;
+}
+
 .buttons li button:hover {
     cursor: pointer;
     background-color: rgba(244, 247, 246, 0.8);

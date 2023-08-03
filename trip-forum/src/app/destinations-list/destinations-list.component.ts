@@ -3,6 +3,8 @@ import { ApiService } from '../api.service';
 import { destination } from '../types/destination';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { UserService } from '../user/user.service';
+import { DestinationService } from '../destination/destination.service';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-destinations-list',
@@ -16,14 +18,34 @@ export class DestinationsListComponent implements OnInit {
   constructor(
     private apiService: ApiService,
     private sanitizer: DomSanitizer,
-    private userService: UserService
+    private userService: UserService,
+    private destinationService: DestinationService
   ) {}
 
   ngOnInit(): void {
+    this.getSortedDestinations();
+  }
+
+  getSortedDestinations() {
     this.apiService.getDestinations().subscribe({
       next: (destinations) => {
-        this.destinationList = destinations;
-        this.isLoading = false;
+        // Fetch the likes count for each destination and wait for all requests to complete
+        const likesRequests = destinations.map((destination) =>
+          this.destinationService.getDestinationLikesCount(destination._id)
+        );
+
+        forkJoin(likesRequests).subscribe((likesCounts) => {
+          destinations.forEach((destination, index) => {
+            destination.likes = likesCounts[index];
+          });
+
+          // Sort the destination list based on likes count
+          this.destinationList = destinations.sort(
+            (a: destination, b: destination) => b.likes - a.likes
+          );
+
+          this.isLoading = false;
+        });
       },
       error: (err) => {
         this.isLoading = false;
@@ -38,5 +60,15 @@ export class DestinationsListComponent implements OnInit {
 
   get isLogged(): boolean {
     return this.userService.isLogged;
+  }
+
+  setLikes(destinations: destination[]) {
+    for (const destination of destinations) {
+      this.destinationService
+        .getDestinationLikesCount(destination._id)
+        .subscribe((res) => {
+          destination.likes = res;
+        });
+    }
   }
 }
