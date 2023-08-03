@@ -18,7 +18,8 @@ body {
 
 .navbar h4{
     font-size: 28px;
-
+    cursor: pointer;
+    padding: 6px;
 }
 
 .navbar li {
@@ -29,9 +30,11 @@ body {
     text-decoration: none;
     color: black;
     font-size: 18px;
-    padding: 0.5rem 2rem;
+    padding: 0.5rem 1rem;
     font-weight: 500;
     border-radius: 1rem;
+    margin-left: 1rem;
+    cursor: pointer;
 }
 
 .navbar ul {
