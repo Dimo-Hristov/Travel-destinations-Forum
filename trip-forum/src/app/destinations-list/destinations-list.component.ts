@@ -4,7 +4,7 @@ import { destination } from '../types/destination';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { UserService } from '../user/user.service';
 import { DestinationService } from '../destination/destination.service';
-import { forkJoin } from 'rxjs';
+import { sortDestinationsByLikes } from '../shared/sort-destinations/sort-by-likes.utill';
 
 @Component({
   selector: 'app-destinations-list',
@@ -29,21 +29,11 @@ export class DestinationsListComponent implements OnInit {
   getSortedDestinations() {
     this.apiService.getDestinations().subscribe({
       next: (destinations) => {
-        // Fetch the likes count for each destination and wait for all requests to complete
-        const likesRequests = destinations.map((destination) =>
-          this.destinationService.getDestinationLikesCount(destination._id)
-        );
-
-        forkJoin(likesRequests).subscribe((likesCounts) => {
-          destinations.forEach((destination, index) => {
-            destination.likes = likesCounts[index];
-          });
-
-          // Sort the destination list based on likes count
-          this.destinationList = destinations.sort(
-            (a: destination, b: destination) => b.likes - a.likes
-          );
-
+        sortDestinationsByLikes(
+          destinations,
+          this.destinationService
+        ).subscribe((sortedDestinations) => {
+          this.destinationList = sortedDestinations;
           this.isLoading = false;
         });
       },
