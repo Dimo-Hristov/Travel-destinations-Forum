@@ -56,4 +56,6 @@ font-size: 42px;
 }
 
 
-
+.places-container a:hover{
+    background-color: rgba(244, 247, 246, 0.8);
+}
