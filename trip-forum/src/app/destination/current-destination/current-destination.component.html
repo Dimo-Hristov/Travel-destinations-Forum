@@ -1,23 +1,42 @@
 <section class="currentDestination" *ngIf="destination">
-  <h1>{{ destination.destination }}</h1>
-  <img [src]="sanitizeImageUrl(destination.imageUrl)" alt="Image" />
-  <h3>{{ destination.type }} trip</h3>
-  <p>{{ destination.description }}</p>
+  <div class="title-img">
+    <h1>{{ destination.destination }}</h1>
+    <img [src]="sanitizeImageUrl(destination.imageUrl)" alt="Image" />
 
-  <button
-    *ngIf="userId"
-    class="likeBtn"
-    [disabled]="isLikeButtonDisabled"
-    (click)="likeDestinationHandler()"
-    #likeButton
-  >
-    Like
-  </button>
+    <p class="likes-count">{{ currentDestinationLikes }} likes</p>
+  </div>
 
-  <p>{{ currentDestinationLikes }} Likes</p>
+  <div class="char">
+    <div class="description">
+      <h3>Destinatio type: {{ destination.type }}</h3>
+      <h4>Description:</h4>
+      <p>{{ destination.description }}</p>
+    </div>
 
-  <ng-container *ngIf="userId === destination._ownerId">
-    <button (click)="editDestination()">edit</button>
-    <button (click)="deleteDestination()">delete</button>
-  </ng-container>
+    <ul class="buttons" *ngIf="userId">
+      <li>
+        <button
+          class="likeBtn"
+          [disabled]="isLikeButtonDisabled"
+          (click)="likeDestinationHandler()"
+          #likeButton
+          class="like-btn"
+        >
+          Like
+        </button>
+      </li>
+      <ng-container *ngIf="userId === destination._ownerId">
+        <li>
+          <button class="edit-btn" (click)="editDestination()">edit</button>
+        </li>
+        <li>
+          <button class="delete-btn" (click)="deleteDestination()">
+            delete
+          </button>
+        </li>
+      </ng-container>
+    </ul>
+
+    <div class="buttons"></div>
+  </div>
 </section>
