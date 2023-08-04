@@ -41,7 +41,7 @@ body {
     display: flex;
 }
 
-.navbar ul>li:last-child a {
+.navbar ul li.destinations a {
     background-color: #370511;
     color: white;
 }
