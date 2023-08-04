@@ -4,7 +4,6 @@ import { HomeComponent } from './home/home.component';
 import { DestinationsListComponent } from './destinations-list/destinations-list.component';
 import { MainComponent } from './main/main.component';
 import { CurrentDestinationComponent } from './destination/current-destination/current-destination.component';
-import { DestinationsListByTypeComponent } from './destinations-list-by-type/destinations-list-by-type.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'main' },
@@ -19,7 +18,11 @@ const routes: Routes = [
       },
       {
         path: ':destinationType',
-        component: DestinationsListByTypeComponent,
+        component: DestinationsListComponent,
+      },
+      {
+        path: ':destinationType/:destinationId',
+        component: CurrentDestinationComponent,
       },
     ],
   },

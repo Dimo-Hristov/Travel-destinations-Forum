@@ -12,7 +12,6 @@ import { UserModule } from './user/user.module';
 import { DestinationModule } from './destination/destination.module';
 import { HomeComponent } from './home/home.component';
 import { UploadedDestinationsComponent } from './uploaded-destinations/uploaded-destinations.component';
-import { DestinationsListByTypeComponent } from './destinations-list-by-type/destinations-list-by-type.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +20,6 @@ import { DestinationsListByTypeComponent } from './destinations-list-by-type/des
     DestinationsListComponent,
     HomeComponent,
     UploadedDestinationsComponent,
-    DestinationsListByTypeComponent,
   ],
   imports: [
     BrowserModule,
