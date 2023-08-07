@@ -11,7 +11,7 @@ import { SharedModule } from './shared/shared.module';
 import { UserModule } from './user/user.module';
 import { DestinationModule } from './destination/destination.module';
 import { HomeComponent } from './home/home.component';
-import { UploadedDestinationsComponent } from './uploaded-destinations/uploaded-destinations.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,7 @@ import { UploadedDestinationsComponent } from './uploaded-destinations/uploaded-
     MainComponent,
     DestinationsListComponent,
     HomeComponent,
-    UploadedDestinationsComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

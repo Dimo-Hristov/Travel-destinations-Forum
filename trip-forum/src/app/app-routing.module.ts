@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { DestinationsListComponent } from './destinations-list/destinations-list.component';
 import { MainComponent } from './main/main.component';
 import { CurrentDestinationComponent } from './destination/current-destination/current-destination.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'main' },
@@ -26,15 +27,15 @@ const routes: Routes = [
       },
     ],
   },
-  { path: 'home', component: HomeComponent },
+  { path: 'profile', component: ProfileComponent },
   { path: 'destinations', component: DestinationsListComponent },
   {
-    path: 'home',
+    path: 'profile',
     children: [
       {
         path: '',
         pathMatch: 'full',
-        component: HomeComponent,
+        component: ProfileComponent,
       },
       {
         path: ':destinationId',

@@ -5,11 +5,11 @@ import { destination } from '../types/destination';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
+  selector: 'app-profile',
+  templateUrl: './profile.component.html',
+  styleUrls: ['./profile.component.css'],
 })
-export class HomeComponent implements OnInit {
+export class ProfileComponent {
   constructor(
     private apiService: ApiService,
     private userService: UserService,
