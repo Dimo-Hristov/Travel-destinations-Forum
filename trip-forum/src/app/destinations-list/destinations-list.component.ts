@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { destination } from '../types/destination';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
@@ -7,13 +7,14 @@ import { DestinationService } from '../destination/destination.service';
 import { sortDestinationsByLikes } from '../shared/sort-destinations/sort-by-likes.utill';
 import { ActivatedRoute } from '@angular/router';
 import { filterDestinationsByType } from '../shared/filter-destinations/filter-by-type.until';
+import { ScrollService } from '../destination/scroll.service';
 
 @Component({
   selector: 'app-destinations-list',
   templateUrl: './destinations-list.component.html',
   styleUrls: ['./destinations-list.component.css'],
 })
-export class DestinationsListComponent implements OnInit {
+export class DestinationsListComponent implements OnInit, OnDestroy {
   destinationList: destination[] = [];
   isLoading: boolean = true;
   destinationType: string | undefined;
@@ -23,14 +24,25 @@ export class DestinationsListComponent implements OnInit {
     private sanitizer: DomSanitizer,
     private userService: UserService,
     private destinationService: DestinationService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private scrollService: ScrollService
   ) {}
 
   ngOnInit(): void {
     this.destinationType =
       this.activatedRoute.snapshot.params['destinationType'];
     this.getSortedDestinations();
+    window.addEventListener('scroll', this.onScroll);
   }
+
+  ngOnDestroy(): void {
+    window.removeEventListener('scroll', this.onScroll);
+  }
+
+  private onScroll = (): void => {
+    const scrollPosition = window.scrollY;
+    this.scrollService.setLastScrollPosition(scrollPosition);
+  };
 
   getSortedDestinations() {
     this.apiService.getDestinations().subscribe({

@@ -12,7 +12,7 @@ import { ScrollService } from '../scroll.service';
   templateUrl: './current-destination.component.html',
   styleUrls: ['./current-destination.component.css'],
 })
-export class CurrentDestinationComponent implements OnInit, OnDestroy {
+export class CurrentDestinationComponent implements OnInit {
   public destination: destination | undefined;
   userId: string = '';
   counts: any;
@@ -35,17 +35,7 @@ export class CurrentDestinationComponent implements OnInit, OnDestroy {
     this.userId = this.userService.user?._id;
     this.getLikesList(this.destinationId);
     this.getDestinationLikes(this.destinationId);
-    window.addEventListener('scroll', this.onScroll);
   }
-
-  ngOnDestroy(): void {
-    window.removeEventListener('scroll', this.onScroll);
-  }
-
-  private onScroll = (): void => {
-    const scrollPosition = window.scrollY;
-    this.scrollService.setLastScrollPosition(scrollPosition);
-  };
 
   goBack(): void {
     this.scrollService.goBackWithAnimation();
