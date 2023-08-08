@@ -8,6 +8,7 @@ import { sortDestinationsByLikes } from '../shared/sort-destinations/sort-by-lik
 import { ActivatedRoute } from '@angular/router';
 import { filterDestinationsByType } from '../shared/filter-destinations/filter-by-type.until';
 import { ScrollService } from '../destination/scroll.service';
+import { CurrentDestinationComponent } from '../destination/current-destination/current-destination.component';
 
 @Component({
   selector: 'app-destinations-list',
@@ -25,7 +26,8 @@ export class DestinationsListComponent implements OnInit, OnDestroy {
     private userService: UserService,
     private destinationService: DestinationService,
     private activatedRoute: ActivatedRoute,
-    private scrollService: ScrollService
+    private scrollService: ScrollService,
+    private destinationSettings: CurrentDestinationComponent
   ) {}
 
   ngOnInit(): void {

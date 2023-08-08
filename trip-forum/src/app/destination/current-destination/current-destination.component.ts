@@ -72,7 +72,7 @@ export class CurrentDestinationComponent implements OnInit {
       });
   }
 
-  editDestination(): void {
+  public editDestination(): void {
     this.router.navigate(['/edit-destination'], {
       queryParams: {
         destination: this.destination?.destination,
@@ -84,7 +84,7 @@ export class CurrentDestinationComponent implements OnInit {
     });
   }
 
-  deleteDestination() {
+  public deleteDestination() {
     const isConfirmed = window.confirm(
       'Are you sure you want to delete this destination?'
     );
