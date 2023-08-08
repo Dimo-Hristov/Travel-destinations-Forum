@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { UserService } from '../user.service';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { User } from 'src/app/types/user';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,7 @@ export class LoginComponent {
     const password = form.value.password;
 
     this.userService.login(email, password).subscribe(
-      (res) => {
+      (res: User) => {
         localStorage.setItem('user', JSON.stringify(res));
         this.router.navigate(['/profile']);
         this.userService.user = res;

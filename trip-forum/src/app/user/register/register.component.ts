@@ -41,6 +41,7 @@ export class RegisterComponent {
     if (email && password) {
       this.userService.register(email, password).subscribe(
         (res) => {
+          alert('Successful register, please login.');
           this.router.navigate(['/login']);
         },
         (error) => {

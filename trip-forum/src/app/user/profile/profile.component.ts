@@ -4,6 +4,7 @@ import { UserService } from '../user.service';
 import { destination } from '../../types/destination';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ScrollService } from '../../destination/scroll.service';
+import { Like } from 'src/app/types/like';
 
 @Component({
   selector: 'app-profile',
@@ -19,7 +20,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
   ) {}
 
   isLoading: boolean = true;
-  lastTenLikes: any = [];
+  lastTenLikes: Like[] = [];
   userId = this.userService.user._id;
   likedDestinations: destination[] = [];
   myDestinations: destination[] = [];
@@ -52,7 +53,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
     );
   }
   //get all liked destinations for current user
-  filterLikes(likesList: any) {
+  filterLikes(likesList: Like[]) {
     for (const like of likesList) {
       if (this.userId === like._ownerId) {
         this.lastTenLikes.push(like);
@@ -63,7 +64,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
     this.getLikedDestinations(this.lastTenLikes);
   }
   // get last 10 liked destinations
-  getLikedDestinations(likesArray: any) {
+  getLikedDestinations(likesArray: Like[]) {
     for (const like of likesArray) {
       this.apiService.getDestination(like.albumId).subscribe((res) => {
         this.likedDestinations.push(res);
