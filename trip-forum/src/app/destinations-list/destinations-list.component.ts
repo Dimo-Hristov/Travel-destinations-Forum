@@ -46,11 +46,11 @@ export class DestinationsListComponent implements OnInit, OnDestroy {
 
   getSortedDestinations() {
     this.apiService.getDestinations().subscribe({
-      next: (destinations) => {
+      next: (destinations: destination[]) => {
         sortDestinationsByLikes(
           destinations,
           this.destinationService
-        ).subscribe((sortedDestinations) => {
+        ).subscribe((sortedDestinations: destination[]) => {
           this.destinationList = sortedDestinations;
 
           // filter destinations if type is choosen
