@@ -87,9 +87,14 @@ export class DestinationsListComponent implements OnInit, OnDestroy {
     for (const destination of destinations) {
       this.destinationService
         .getDestinationLikesCount(destination._id)
-        .subscribe((res) => {
-          destination.likes = res;
-        });
+        .subscribe(
+          (res) => {
+            destination.likes = res;
+          },
+          (error) => {
+            alert(error.message);
+          }
+        );
     }
   }
 }

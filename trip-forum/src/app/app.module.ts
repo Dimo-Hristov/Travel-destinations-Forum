@@ -11,7 +11,6 @@ import { SharedModule } from './shared/shared.module';
 import { UserModule } from './user/user.module';
 import { DestinationModule } from './destination/destination.module';
 import { HomeComponent } from './home/home.component';
-import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +18,6 @@ import { ProfileComponent } from './profile/profile.component';
     MainComponent,
     DestinationsListComponent,
     HomeComponent,
-    ProfileComponent,
   ],
   imports: [
     BrowserModule,

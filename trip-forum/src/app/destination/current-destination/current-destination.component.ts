@@ -42,26 +42,31 @@ export class CurrentDestinationComponent implements OnInit {
   }
 
   fetchDestination(): void {
-    this.apiService
-      .getDestination(this.destinationId)
-      .subscribe((destination) => {
+    this.apiService.getDestination(this.destinationId).subscribe(
+      (destination: destination) => {
         this.destination = destination;
-      });
+      },
+      (error) => {
+        alert(error.message);
+      }
+    );
   }
 
   likeDestinationHandler(): void {
-    this.destinationService
-      .likeDestination(this.destinationId)
-      .subscribe((res) => {
+    this.destinationService.likeDestination(this.destinationId).subscribe(
+      (res) => {
         this.currentDestinationLikes++;
         this.isLikeButtonDisabled = true;
-      });
+      },
+      (error) => {
+        alert(error.message);
+      }
+    );
   }
 
   getLikesList(destinationId: string): any {
-    this.destinationService
-      .getDestinationLikesList(destinationId)
-      .subscribe((likesList) => {
+    this.destinationService.getDestinationLikesList(destinationId).subscribe(
+      (likesList) => {
         for (const like of likesList) {
           debugger;
           if (like._ownerId === this.userId) {
@@ -69,7 +74,11 @@ export class CurrentDestinationComponent implements OnInit {
             return;
           }
         }
-      });
+      },
+      (error) => {
+        alert(error.message);
+      }
+    );
   }
 
   public editDestination(): void {
@@ -90,20 +99,26 @@ export class CurrentDestinationComponent implements OnInit {
     );
 
     if (isConfirmed) {
-      this.destinationService
-        .deleteDestination(this.destinationId)
-        .subscribe((res) => {
+      this.destinationService.deleteDestination(this.destinationId).subscribe(
+        (res) => {
           this.router.navigate(['/home']);
-        });
+        },
+        (error) => {
+          alert(error.message);
+        }
+      );
     }
   }
 
   getDestinationLikes(destinationId: string) {
-    this.destinationService
-      .getDestinationLikesCount(destinationId)
-      .subscribe((res) => {
+    this.destinationService.getDestinationLikesCount(destinationId).subscribe(
+      (res) => {
         this.currentDestinationLikes = res;
-      });
+      },
+      (error) => {
+        alert(error.message);
+      }
+    );
   }
 
   sanitizeImageUrl(url: string): SafeResourceUrl {

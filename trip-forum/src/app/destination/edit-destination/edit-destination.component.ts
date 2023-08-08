@@ -39,8 +39,13 @@ export class EditDestinationComponent implements OnInit {
 
     this.destinationService
       .editDestination(this.destination._id, data)
-      .subscribe((res) => {
-        this.router.navigate([`destinations/${this.destination._id}`]);
-      });
+      .subscribe(
+        (res) => {
+          this.router.navigate([`destinations/${this.destination._id}`]);
+        },
+        (error) => {
+          alert(error.message);
+        }
+      );
   }
 }

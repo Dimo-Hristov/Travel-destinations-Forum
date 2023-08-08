@@ -46,10 +46,15 @@ export class HomeComponent implements OnInit {
 
   getLastThreeDestinations(likesArray: any) {
     for (const like of likesArray) {
-      this.apiService.getDestination(like.albumId).subscribe((res) => {
-        this.lastThreeLikedDestinations.push(res);
-        this.isLoading = false;
-      });
+      this.apiService.getDestination(like.albumId).subscribe(
+        (res) => {
+          this.lastThreeLikedDestinations.push(res);
+          this.isLoading = false;
+        },
+        (error) => {
+          alert(error.message);
+        }
+      );
     }
   }
 
