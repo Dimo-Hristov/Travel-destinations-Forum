@@ -1,11 +1,11 @@
-<section class="rec-places" *ngIf="likedDestinations.length == 0">
-  <header class="places-header">
-    <h2>Recend liked</h2>
-    <p>You dont have liked destinations</p>
-  </header>
-</section>
-
 <section class="main-section">
+  <section class="rec-places" *ngIf="likedDestinations.length == 0">
+    <header class="places-header">
+      <h2>Recend liked</h2>
+      <p>You dont have liked destinations</p>
+    </header>
+  </section>
+
   <article class="rec-places" *ngIf="likedDestinations.length > 0">
     <header class="places-header">
       <h2>Recend liked</h2>
@@ -31,14 +31,19 @@
       <h2>My posts</h2>
     </header>
 
+    <section class="rec-places" *ngIf="myDestinations.length == 0">
+      <header class="places-header">
+        <p>You dont have any posts</p>
+      </header>
+    </section>
+
     <div class="posts-list">
       <article *ngFor="let destination of myDestinations">
         <h3>{{ destination.destination }}</h3>
         <img [src]="sanitizeImageUrl(destination.imageUrl)" alt="Image" />
 
         <div class="buttons">
-          <button>Edit</button>
-          <button>Delete</button>
+          <button [routerLink]="destination._id">View post</button>
         </div>
       </article>
     </div>
