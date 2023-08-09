@@ -101,7 +101,7 @@ export class CurrentDestinationComponent implements OnInit {
     if (isConfirmed) {
       this.destinationService.deleteDestination(this.destinationId).subscribe(
         (res) => {
-          this.router.navigate(['/home']);
+          this.router.navigate(['/main']);
         },
         (error) => {
           alert(error.message);

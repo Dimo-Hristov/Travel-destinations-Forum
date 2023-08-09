@@ -82,6 +82,8 @@ export class ProfileComponent implements OnInit, OnDestroy {
             this.myDestinations.push(destination);
           }
         }
+        // reverse the array to get the last added at the top
+        this.myDestinations.reverse();
       },
       (error) => {
         alert(error.message);
