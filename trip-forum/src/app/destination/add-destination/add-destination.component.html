@@ -43,12 +43,17 @@
       name="description"
       ngModel
       required
+      maxlength="100"
+      minlength="10"
       #inputDescription="ngModel"
     />
 
     <ng-container *ngIf="inputDescription.touched">
       <p *ngIf="inputDescription.errors?.['required']">
         Description is required
+      </p>
+      <p *ngIf="inputDescription.errors?.['minlength']">
+        Minimum length is 10 characters!
       </p>
     </ng-container>
 
