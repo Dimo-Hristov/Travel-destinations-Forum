@@ -8,6 +8,7 @@
 
     <label for="destination">Destination</label>
     <input
+      class="description-field"
       type="text"
       id="destination"
       name="destination"
@@ -37,7 +38,7 @@
     </ng-container>
 
     <label for="description">Description</label>
-    <input
+    <!-- <input
       type="text"
       id="description"
       name="description"
@@ -45,11 +46,25 @@
       required
       maxlength="600"
       #inputDescription="ngModel"
-    />
+    /> -->
+    <textarea
+      name="description"
+      id="description"
+      cols="30"
+      rows="10"
+      ngModel="{{ destination.description }}"
+      required
+      maxlength="600"
+      minlength="10"
+      #inputDescription="ngModel"
+    ></textarea>
 
     <ng-container *ngIf="inputDescription.touched">
       <p *ngIf="inputDescription.errors?.['required']">
         Description is required
+      </p>
+      <p *ngIf="inputDescription.errors?.['minlength']">
+        Minimum length is 10 characters!
       </p>
     </ng-container>
 
@@ -90,6 +105,11 @@
       />
     </div>
 
-    <button [disabled]="form.invalid">Add new destination</button>
+    <button
+      [ngClass]="{ 'active-button': form.valid }"
+      [disabled]="form.invalid"
+    >
+      Edit destination
+    </button>
   </form>
 </div>

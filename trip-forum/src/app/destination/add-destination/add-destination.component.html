@@ -94,6 +94,11 @@
       />
     </div>
 
-    <button [disabled]="form.invalid">Add new destination</button>
+    <button
+      [disabled]="form.invalid"
+      [ngClass]="{ 'active-button': form.valid }"
+    >
+      Add new destination
+    </button>
   </form>
 </div>

@@ -52,3 +52,11 @@
 .destinationForm label{
     margin-left: 22px;
 }
+
+.destination .active-button {
+    color: rgb(147, 144, 144)
+  }
+  
+  .destination .active-button:hover {
+      background-color: whitesmoke;
+    }
