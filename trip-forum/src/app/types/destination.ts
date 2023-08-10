@@ -7,4 +7,5 @@ export interface destination {
   _createdOn: number;
   _id: string;
   likes: number;
+  comments: [];
 }

@@ -44,3 +44,7 @@
     <div class="buttons"></div>
   </div>
 </section>
+<ng-container *ngIf="destination">
+  <app-comments [comments]="destination.comments"></app-comments>
+  <p>asdasd</p>
+</ng-container>
