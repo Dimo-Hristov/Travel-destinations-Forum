@@ -1,1 +1,3 @@
-<p>{{ comments }}</p>
+<article *ngFor="let comment of comments">
+  <p>{{ comment.comment }}</p>
+</article>
