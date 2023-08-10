@@ -7,8 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class CommentsComponent {
   @Input() comments: any[] | undefined;
+  @Input() destinationId: string | undefined;
 
-  addComment(comment: any) {
-    console.log(comment);
-  }
+  addComment(comment: any) {}
 }

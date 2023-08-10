@@ -45,6 +45,9 @@
   </div>
 </section>
 <ng-container *ngIf="destination">
-  <app-comments [comments]="destination.comments"></app-comments>
+  <app-comments
+    [comments]="destination.comments"
+    [destinationId]="destination._id"
+  ></app-comments>
   <p>asdasd</p>
 </ng-container>

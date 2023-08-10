@@ -4,15 +4,17 @@
   <p>{{ comment.owner }}</p>
   <br />
 
-  <div class="add-comment" (ngSubmit)="addComment(commentText)">
-    <label for="comment">add comment</label>
-    <textarea
-      name="comment"
-      id="comment"
-      cols="30"
-      rows="10"
-      #commentText
-    ></textarea>
-    <button>Submit</button>
+  <div class="add-comment">
+    <form (ngSubmit)="addComment(commentText)">
+      <label for="comment">add comment</label>
+      <textarea
+        name="comment"
+        id="comment"
+        cols="30"
+        rows="10"
+        #commentText
+      ></textarea>
+      <button>Submit</button>
+    </form>
   </div>
 </article>

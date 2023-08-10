@@ -1,5 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
 import { UserService } from '../user/user.service';
 import { Observable } from 'rxjs';
@@ -7,8 +7,15 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class DestinationService {
+export class DestinationService implements OnInit {
   private appUrl = environment.appUrl;
+  userId: string | undefined;
+  userEmail: string | undefined;
+
+  ngOnInit(): void {
+    this.userId = this.userService.user?._id;
+    this.userEmail = this.userService.user?.email;
+  }
 
   private endPoints = {
     getDestination: '/data/fruits?sortBy=_createdOn%20desc',
@@ -95,6 +102,20 @@ export class DestinationService {
   getDestinationLikesCount(destinationId: string): Observable<number> {
     return this.http.get<number>(
       `${this.appUrl}${this.endPoints.likeCount1}${destinationId}${this.endPoints.likeCount2}`
+    );
+  }
+
+  addComment(destinationId: string, comments: any): Observable<any> {
+    const accessToken = this.userService.user.accessToken;
+    const headers = new HttpHeaders({
+      'content-type': 'application/json',
+      'X-Authorization': accessToken,
+    });
+
+    return this.http.patch(
+      `${this.appUrl}/${destinationId}`,
+      JSON.stringify(comments),
+      { headers }
     );
   }
 }
