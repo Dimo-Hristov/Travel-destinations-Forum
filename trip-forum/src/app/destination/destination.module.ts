@@ -6,7 +6,7 @@ import { DestinationRoutingModule } from './destination-routing.module';
 import { FormsModule } from '@angular/forms';
 import { UserModule } from '../user/user.module';
 import { EditDestinationComponent } from './edit-destination/edit-destination.component';
-import { CommentsComponent } from '../comments/comments.component';
+import { CommentsComponent } from './comments/comments.component';
 
 @NgModule({
   declarations: [

@@ -1358,7 +1358,7 @@
                 'description': 'The unforgettable novel of a childhood in a sleepy Southern town and the crisis of conscience that rocked it. "To Kill A Mockingbird" became both an instant bestseller and a critical success when it was first published in 1960. It went on to win the Pulitzer Prize in 1961 and was later made into an Academy Award-winning film, also a classic.',
                 'imageUrl': 'https://media.istockphoto.com/id/635758088/photo/sunrise-at-the-eiffel-tower-in-paris-along-the-seine.jpg?s=612x612&w=0&k=20&c=rdy3aU1CDyh66mPyR5AAc1yJ0yEameR_v2vOXp2uuMM=',
                 'type': 'Town',
-                'comments': [{ 'comment': ' aasdasdsad' }],
+                'comments': [{ 'comment': ' aasdasdsad', '_ownerId': '35c62d76-8152-4626-8712-eeb96381bea8', 'owner': 'peter@abv.bg' }],
                 '_createdOn': 1617799658349
             },
             'f6f54fcd-0469-470b-8ffa-a33ae6c7a525': {
