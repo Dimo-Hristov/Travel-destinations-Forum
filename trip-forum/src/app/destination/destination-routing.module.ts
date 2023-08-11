@@ -4,7 +4,7 @@ import { MainComponent } from '../main/main.component';
 import { AddDestinationComponent } from './add-destination/add-destination.component';
 import { CurrentDestinationComponent } from './current-destination/current-destination.component';
 import { EditDestinationComponent } from './edit-destination/edit-destination.component';
-import { AuthGuard } from '../shared/auth-guard/guard.guard';
+import { AuthGuard } from '../shared/auth-guard/auth.guard';
 
 const routes: Routes = [
   {

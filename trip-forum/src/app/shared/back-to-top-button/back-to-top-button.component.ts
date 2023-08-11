@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-back-to-top-button',
@@ -9,7 +9,7 @@ export class BackToTopButtonComponent {
   scrollToTop(): void {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth', // Add smooth scrolling effect
+      behavior: 'smooth',
     });
   }
 }
