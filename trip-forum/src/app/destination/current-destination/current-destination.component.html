@@ -23,7 +23,7 @@
           class="like-btn"
           *ngIf="userId"
         >
-          Like
+          {{ isLikeButtonDisabled ? "Liked" : "Like" }}
         </button>
       </li>
       <ng-container *ngIf="userId === destination._ownerId">
