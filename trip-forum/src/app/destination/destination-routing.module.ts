@@ -4,10 +4,19 @@ import { MainComponent } from '../main/main.component';
 import { AddDestinationComponent } from './add-destination/add-destination.component';
 import { CurrentDestinationComponent } from './current-destination/current-destination.component';
 import { EditDestinationComponent } from './edit-destination/edit-destination.component';
+import { AuthGuard } from '../shared/auth-guard/guard.guard';
 
 const routes: Routes = [
-  { path: 'add-destination', component: AddDestinationComponent },
-  { path: 'edit-destination', component: EditDestinationComponent },
+  {
+    path: 'add-destination',
+    component: AddDestinationComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'edit-destination',
+    component: EditDestinationComponent,
+    canActivate: [AuthGuard],
+  },
   {
     path: 'destinations',
     children: [
