@@ -17,15 +17,6 @@ export class DestinationService implements OnInit {
     this.userEmail = this.userService.user?.email;
   }
 
-  getAuthHeaders() {
-    const accessToken = this.userService.user.accessToken;
-    const headers = new HttpHeaders({
-      'content-type': 'application/json',
-      'X-Authorization': accessToken,
-    });
-    return headers;
-  }
-
   private endPoints = {
     getDestination: '/data/fruits?sortBy=_createdOn%20desc',
     addDestination: '/data/destinations',
@@ -45,7 +36,7 @@ export class DestinationService implements OnInit {
   constructor(private http: HttpClient, private userService: UserService) {}
 
   addDestination(data: object): Observable<any> {
-    const headers = this.getAuthHeaders();
+    const headers = this.userService.getAuthHeaders();
     return this.http.post(
       `${this.appUrl}${this.endPoints.addDestination}`,
       JSON.stringify(data),
@@ -54,7 +45,7 @@ export class DestinationService implements OnInit {
   }
 
   likeDestination(destinationId: string): Observable<any> {
-    const headers = this.getAuthHeaders();
+    const headers = this.userService.getAuthHeaders();
     const data = {
       albumId: destinationId,
     };
@@ -73,7 +64,7 @@ export class DestinationService implements OnInit {
   }
 
   editDestination(destinationId: string, data: object): Observable<any> {
-    const headers = this.getAuthHeaders();
+    const headers = this.userService.getAuthHeaders();
 
     return this.http.put(
       `${this.appUrl}${this.endPoints.edit}${destinationId}`,
@@ -83,7 +74,7 @@ export class DestinationService implements OnInit {
   }
 
   deleteDestination(destinationId: string): Observable<any> {
-    const headers = this.getAuthHeaders();
+    const headers = this.userService.getAuthHeaders();
 
     return this.http.delete(
       `${this.appUrl}${this.endPoints.delete}${destinationId}`,

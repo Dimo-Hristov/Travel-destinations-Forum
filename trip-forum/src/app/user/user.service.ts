@@ -23,6 +23,15 @@ export class UserService {
     }
   }
 
+  public getAuthHeaders() {
+    const accessToken = this.user.accessToken;
+    const headers = new HttpHeaders({
+      'content-type': 'application/json',
+      'X-Authorization': accessToken,
+    });
+    return headers;
+  }
+
   private appUrl = environment.appUrl;
 
   private endpoints = {
@@ -46,11 +55,7 @@ export class UserService {
   }
 
   logout(): void {
-    const accessToken = this.user.accessToken;
-    const headers = new HttpHeaders({
-      'content-type': 'application/json',
-      'X-Authorization': accessToken,
-    });
+    const headers = this.getAuthHeaders();
     this.http
       .get(`${this.appUrl}/users/logout`, { headers })
       .subscribe((res) => {
