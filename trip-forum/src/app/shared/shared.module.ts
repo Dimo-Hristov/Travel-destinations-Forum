@@ -6,6 +6,6 @@ import { BackToTopButtonComponent } from './back-to-top-button/back-to-top-butto
 @NgModule({
   declarations: [LoaderComponent, BackToTopButtonComponent],
   imports: [CommonModule],
-  exports: [LoaderComponent],
+  exports: [LoaderComponent, BackToTopButtonComponent],
 })
 export class SharedModule {}
