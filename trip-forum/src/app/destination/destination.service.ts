@@ -104,18 +104,4 @@ export class DestinationService implements OnInit {
       `${this.appUrl}${this.endPoints.likeCount1}${destinationId}${this.endPoints.likeCount2}`
     );
   }
-
-  addComment(destinationId: string, comments: any): Observable<any> {
-    const accessToken = this.userService.user.accessToken;
-    const headers = new HttpHeaders({
-      'content-type': 'application/json',
-      'X-Authorization': accessToken,
-    });
-
-    return this.http.patch(
-      `${this.appUrl}/${destinationId}`,
-      JSON.stringify(comments),
-      { headers }
-    );
-  }
 }
