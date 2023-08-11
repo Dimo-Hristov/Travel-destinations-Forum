@@ -3,6 +3,7 @@
     text-align: center;
     padding: 5rem 15rem;
     margin-top: 11rem;
+    min-height: 600px;
 }
 
 .places-header h2 {

@@ -19,7 +19,6 @@ export class ProfileComponent implements OnInit, OnDestroy {
     private scrollService: ScrollService
   ) {}
 
-  isLoading: boolean = true;
   lastTenLikes: Like[] = [];
   userId = this.userService.user._id;
   likedDestinations: destination[] = [];
@@ -70,14 +69,12 @@ export class ProfileComponent implements OnInit, OnDestroy {
         this.likedDestinations.push(res);
       });
     }
-    this.isLoading = false;
   }
 
   getMyPosts() {
     this.apiService.getDestinations().subscribe(
       (destinations) => {
         for (const destination of destinations) {
-          debugger;
           if (destination._ownerId === this.userId) {
             this.myDestinations.push(destination);
           }

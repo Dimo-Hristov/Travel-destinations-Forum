@@ -68,7 +68,6 @@ export class CurrentDestinationComponent implements OnInit {
     this.destinationService.getDestinationLikesList(destinationId).subscribe(
       (likesList) => {
         for (const like of likesList) {
-          debugger;
           if (like._ownerId === this.userId) {
             this.isLikeButtonDisabled = true;
             return;

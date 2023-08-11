@@ -11,11 +11,7 @@
       <h2>Recend liked</h2>
     </header>
 
-    <div *ngIf="isLoading">
-      <app-loader />
-    </div>
-
-    <div class="places-container" *ngIf="!isLoading">
+    <div class="places-container">
       <article *ngFor="let destination of likedDestinations">
         <img [src]="sanitizeImageUrl(destination.imageUrl)" alt="Image" />
 
