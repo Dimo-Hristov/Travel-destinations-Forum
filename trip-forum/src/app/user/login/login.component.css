@@ -39,3 +39,11 @@
     border-radius: 16px;
     letter-spacing: 3px;
 }
+
+.login .active-button {
+    color: rgb(147, 144, 144)
+  }
+  
+  .login .active-button:hover {
+      background-color: whitesmoke;
+    }

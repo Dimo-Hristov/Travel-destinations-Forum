@@ -20,7 +20,7 @@
 
     <label for="password">Password</label>
     <input
-      type="text"
+      type="password"
       id="password"
       name="password"
       ngModel
@@ -31,6 +31,11 @@
       <p *ngIf="inputPassword.errors?.['required']">Password is required</p>
     </ng-container>
 
-    <button [disabled]="form.invalid">Login</button>
+    <button
+      [disabled]="form.invalid"
+      [ngClass]="{ 'active-button': form.valid }"
+    >
+      Login
+    </button>
   </form>
 </div>

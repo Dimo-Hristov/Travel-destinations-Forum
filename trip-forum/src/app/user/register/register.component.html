@@ -45,17 +45,17 @@
         >
           Repeat password is required
         </p>
-        <p
-          *ngIf="form.get('passGroup')?.get('rePassword')?.errors?.['minlength']"
-        >
-          Repeat password should be at least 5 sumbols!
-        </p>
         <p *ngIf="form.get('passGroup')?.errors?.['passwordsValidator']">
           Passwords do not match!
         </p>
       </ng-container>
     </ng-container>
 
-    <button [disabled]="form.invalid">Register</button>
+    <button
+      [disabled]="form.invalid"
+      [ngClass]="{ 'active-button': form.valid }"
+    >
+      Register
+    </button>
   </form>
 </div>
