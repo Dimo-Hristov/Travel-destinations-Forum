@@ -37,16 +37,18 @@
     </ng-container>
 
     <label for="description">Description</label>
-    <input
-      type="text"
-      id="description"
+    <textarea
+      class="description-area"
       name="description"
+      id="description"
+      cols="30"
+      rows="10"
       ngModel
       required
       maxlength="600"
       minlength="10"
       #inputDescription="ngModel"
-    />
+    ></textarea>
 
     <ng-container *ngIf="inputDescription.touched">
       <p *ngIf="inputDescription.errors?.['required']">

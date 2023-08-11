@@ -61,3 +61,9 @@
 .destination .active-button:hover {
     background-color: whitesmoke;
   }
+
+
+  .destination .description-area {
+    resize: none;
+
+  }

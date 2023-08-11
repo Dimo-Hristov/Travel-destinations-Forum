@@ -14,6 +14,7 @@
     padding: 0 8px 0 8px;
 }
 
+
 .destination button {
     margin-top: 32px;
     padding: 8px 32px;
@@ -54,9 +55,13 @@
 }
 
 .destination .active-button {
-    color: rgb(147, 144, 144)
+  color: rgb(147, 144, 144)
+}
+
+.destination .active-button:hover {
+    background-color: whitesmoke;
   }
-  
-  .destination .active-button:hover {
-      background-color: whitesmoke;
-    }
+
+  .destination .description-area {
+    resize: none;
+  }
