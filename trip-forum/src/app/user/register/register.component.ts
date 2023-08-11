@@ -11,7 +11,10 @@ import { passwordsValidator } from 'src/app/shared/validators/match-passwords-va
 })
 export class RegisterComponent {
   form = this.fb.group({
-    email: ['', [Validators.required, Validators.minLength(5)]],
+    email: [
+      '',
+      [Validators.required, Validators.minLength(5), Validators.email],
+    ],
     passGroup: this.fb.group(
       {
         password: ['', [Validators.required, Validators.minLength(5)]],

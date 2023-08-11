@@ -4,17 +4,18 @@
 
     <label for="email">Email</label>
     <input
-      type="text"
+      type="email"
       id="email"
       name="email"
       ngModel
       required
       #inputEmail="ngModel"
-      appEmail
+      email
     />
 
     <ng-container *ngIf="inputEmail.touched">
       <p *ngIf="inputEmail.errors?.['required']">Email is required</p>
+      <p *ngIf="inputEmail.errors?.['email']">Email is not valid</p>
     </ng-container>
 
     <label for="password">Password</label>

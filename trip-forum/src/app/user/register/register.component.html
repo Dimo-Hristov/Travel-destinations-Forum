@@ -10,6 +10,7 @@
       <p *ngIf="form.get('email')?.errors?.['minlength']">
         Email sould be at least 5 symbols
       </p>
+      <p *ngIf="form.get('email')?.errors?.['email']">Email is not valid</p>
     </ng-container>
 
     <ng-container formGroupName="passGroup">
