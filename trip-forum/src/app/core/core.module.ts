@@ -3,10 +3,9 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
-import { SearchDirective } from './search.directive';
 
 @NgModule({
-  declarations: [HeaderComponent, FooterComponent, SearchDirective],
+  declarations: [HeaderComponent, FooterComponent],
   imports: [CommonModule, RouterModule],
   exports: [FooterComponent, HeaderComponent],
 })
