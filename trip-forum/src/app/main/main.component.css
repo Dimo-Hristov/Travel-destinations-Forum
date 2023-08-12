@@ -1,5 +1,5 @@
 .main {
-    height: 800px;
+    min-height: 800px;
     background-color: whitesmoke;
 }
 
@@ -53,3 +53,31 @@
     background-color: rgba(232, 242, 239, 0.8);
 }
 
+@media (max-width:1600px){
+    .main .destination-types li{
+        padding: 2rem;
+    }
+    .main{
+        min-height: 750px;
+    }
+    
+}
+
+@media (max-width:1300px){
+    .main .destination-types li{
+        padding: 8px;
+    }
+
+    .main{
+        min-height: 750px;
+    }
+
+   
+}
+
+@media (max-width:900px){
+    .main .destination-types{
+        flex-wrap: wrap;
+    }
+
+}
