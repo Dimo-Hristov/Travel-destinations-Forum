@@ -71,5 +71,55 @@ body {
     background-color: #370511;
 }
 
+@media (max-width: 1500px){
+    .intro h3{
+        display: none;
+    }
+}
+
+@media (max-width: 1100px){
+    .background-img{
+        margin-top: -10rem;
+    }
+}
+
+@media (max-width: 850px){
+    .intro {
+        margin-left: 0;
+        margin-top: 5rem;
+    }
+
+}
+
+@media (max-width: 670px){
+    .background-img{
+        margin-top: -7rem;
+    }
+
+    .intro {
+        margin-top: 2rem;
+    }
+
+    .navbar {
+        justify-content: space-between;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .navbar ul{
+        flex-direction: column;
+        gap: 1rem;
+        
+    }
+    
+}
+
+@media (max-width: 540px){
+
+    .background-img{
+        margin-top: -4rem;
+    }
+}
+
 
 

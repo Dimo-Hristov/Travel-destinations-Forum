@@ -80,6 +80,7 @@ font-size: 42px;
 @media (max-width: 1300px){
     .rec-places {
        padding: 2rem;
+       margin-top: 6rem;
     }
 }
 
