@@ -18,10 +18,11 @@ font-size: 42px;
 .places-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
 }
 
 .places-container article{
-    width: 400px;
+    max-width: 400px;
 }
 
 
@@ -66,6 +67,20 @@ font-size: 42px;
 
 .places-container a:hover{
     background-color: rgba(244, 247, 246, 0.8);
+}
+
+@media (max-width: 1600px){
+    .places-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+}
+
+@media (max-width: 1300px){
+    .rec-places {
+       padding: 2rem;
+    }
 }
 
 
