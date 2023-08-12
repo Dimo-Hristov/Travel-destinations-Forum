@@ -2,7 +2,7 @@
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: #007bff;
+    background-color: rgba(0, 123, 255, 0.5);
     color: white;
     border: none;
     border-radius: 5px;
