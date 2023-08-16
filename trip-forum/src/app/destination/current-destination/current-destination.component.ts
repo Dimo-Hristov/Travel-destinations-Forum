@@ -21,7 +21,6 @@ export class CurrentDestinationComponent implements OnInit {
   currentDestinationLikes: number = 0;
 
   constructor(
-    private apiService: ApiService,
     private activatedRoute: ActivatedRoute,
     private sanitizer: DomSanitizer,
     private userService: UserService,
@@ -42,7 +41,7 @@ export class CurrentDestinationComponent implements OnInit {
   }
 
   fetchDestination(): void {
-    this.apiService.getDestination(this.destinationId).subscribe(
+    this.destinationService.getDestination(this.destinationId).subscribe(
       (destination: destination) => {
         this.destination = destination;
       },

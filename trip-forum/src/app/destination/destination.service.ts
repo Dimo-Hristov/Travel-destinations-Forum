@@ -3,6 +3,7 @@ import { Injectable, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
 import { UserService } from '../user/user.service';
 import { Observable } from 'rxjs';
+import { destination } from '../types/destination';
 
 @Injectable({
   providedIn: 'root',
@@ -34,6 +35,10 @@ export class DestinationService implements OnInit {
   };
 
   constructor(private http: HttpClient, private userService: UserService) {}
+
+  getDestination(id: string) {
+    return this.http.get<destination>(`${this.appUrl}/data/destinations/${id}`);
+  }
 
   addDestination(data: object): Observable<any> {
     const headers = this.userService.getAuthHeaders();

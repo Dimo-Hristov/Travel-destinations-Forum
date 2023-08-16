@@ -5,6 +5,7 @@ import { destination } from '../../types/destination';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ScrollService } from '../../destination/scroll.service';
 import { Like } from 'src/app/types/like';
+import { DestinationService } from 'src/app/destination/destination.service';
 
 @Component({
   selector: 'app-profile',
@@ -13,6 +14,7 @@ import { Like } from 'src/app/types/like';
 })
 export class ProfileComponent implements OnInit, OnDestroy {
   constructor(
+    private destinationService: DestinationService,
     private apiService: ApiService,
     private userService: UserService,
     private sanitizer: DomSanitizer,
@@ -65,7 +67,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
   // get last 10 liked destinations
   getLikedDestinations(likesArray: Like[]) {
     for (const like of likesArray) {
-      this.apiService.getDestination(like.albumId).subscribe((res) => {
+      this.destinationService.getDestination(like.albumId).subscribe((res) => {
         this.likedDestinations.push(res);
       });
     }

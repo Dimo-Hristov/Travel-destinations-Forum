@@ -10,10 +10,6 @@ export class ApiService {
   private appUrl = environment.appUrl;
   constructor(private http: HttpClient) {}
 
-  getDestination(id: string) {
-    return this.http.get<destination>(`${this.appUrl}/data/destinations/${id}`);
-  }
-
   getDestinations() {
     return this.http.get<destination[]>(`${this.appUrl}/data/destinations`);
   }

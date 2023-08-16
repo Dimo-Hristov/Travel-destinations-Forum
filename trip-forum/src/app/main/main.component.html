@@ -7,19 +7,24 @@
   <ul class="destination-types">
     <li>
       <h3>Mountain destinations</h3>
-      <a routerLink="Mountain"
+      <a
+        routerLink="Mountain"
+        #discoverPlaceLink
+        (click)="scrollToDestination()"
         ><img src="../../assets/images/mountain.jpeg" alt=""
       /></a>
     </li>
     <li>
       <h3>Town destinations</h3>
-      <a routerLink="Town"
+      <a routerLink="Town" #discoverPlaceLink (click)="scrollToDestination()"
         ><img src="../../assets/images/town.jpeg" alt=""
       /></a>
     </li>
     <li>
       <h3>Sea destinations</h3>
-      <a routerLink="Sea"><img src="../../assets/images/sea.jpeg" alt="" /></a>
+      <a routerLink="Sea" #discoverPlaceLink (click)="scrollToDestination()"
+        ><img src="../../assets/images/sea.jpeg" alt=""
+      /></a>
     </li>
   </ul>
 </main>
