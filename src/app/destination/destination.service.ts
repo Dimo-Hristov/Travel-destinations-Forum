@@ -20,7 +20,7 @@ export class DestinationService implements OnInit {
 
   private endPoints = {
     getDestination: '/data/fruits?sortBy=_createdOn%20desc',
-    addDestination: '/data/destinations',
+    addDestination: '/destinations',
     details: '/data/destinations/',
     edit: '/data/destinations/',
     delete: '/data/destinations/',
