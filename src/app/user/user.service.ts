@@ -35,8 +35,8 @@ export class UserService {
   private appUrl = environment.appUrl;
 
   private endpoints = {
-    login: '/users/login',
-    register: '/users/register',
+    login: '/auth/login',
+    register: '/auth/register',
     logout: '/users/logout',
   };
 
