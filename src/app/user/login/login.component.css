@@ -1,5 +1,5 @@
 .login{
-
+margin: 0 16px;
     height: 50vh;
     display: flex;
     justify-content: center;
@@ -13,6 +13,7 @@
     margin-bottom: 15px;
     border-radius: 16px;
     padding: 0 8px 0 8px;
+    text-align: center;
 }
 
 .login button {
@@ -32,7 +33,6 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 20%;
     height: 90%;
     padding: 20px;
     color: whitesmoke;
