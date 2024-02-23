@@ -94,4 +94,3 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 This is the softuni practice server.
 To go server folder and run `node server.js`.
 Its will start to listen on `http://localhost:3030`
-
