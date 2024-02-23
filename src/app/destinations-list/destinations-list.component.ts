@@ -63,26 +63,21 @@ export class DestinationsListComponent implements OnInit, OnDestroy {
   getSortedDestinations() {
     this.apiService.getDestinations().subscribe({
       next: (destinations: destination[]) => {
-        sortDestinationsByLikes(
-          destinations,
-          this.destinationService
-        ).subscribe((sortedDestinations: destination[]) => {
-          this.destinationList = sortedDestinations;
+        this.destinationList = destinations;
 
-          // filter destinations if type is choosen
-          if (this.destinationType) {
-            this.destinationList = filterDestinationsByType(
-              this.destinationList,
-              this.destinationType
-            );
-          }
+        // filter destinations if type is choosen
+        if (this.destinationType) {
+          this.destinationList = filterDestinationsByType(
+            this.destinationList,
+            this.destinationType
+          );
+        }
 
-          if (!this.destinationType) {
-            this.destinationType = 'place';
-          }
+        if (!this.destinationType) {
+          this.destinationType = 'place';
+        }
 
-          this.isLoading = false;
-        });
+        this.isLoading = false;
       },
       error: (err) => {
         this.isLoading = false;

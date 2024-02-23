@@ -12,7 +12,7 @@ export function sortDestinationsByLikes(
   );
 
   return forkJoin(likesRequests).pipe(
-    map((likesCounts: number[]) => {
+    map((likesCounts: any) => {
       destinations.forEach((destination, index) => {
         destination.likes = likesCounts[index];
       });

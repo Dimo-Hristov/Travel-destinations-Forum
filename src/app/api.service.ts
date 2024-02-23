@@ -11,7 +11,7 @@ export class ApiService {
   constructor(private http: HttpClient) {}
 
   getDestinations() {
-    return this.http.get<destination[]>(`${this.appUrl}/data/destinations`);
+    return this.http.get<destination[]>(`${this.appUrl}/destinations`);
   }
 
   getAllLikes() {
