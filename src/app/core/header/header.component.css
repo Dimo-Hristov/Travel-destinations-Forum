@@ -50,7 +50,7 @@ body {
 
 .intro {
     margin-top: 10rem;
-    margin-left: 21rem;
+    margin-left: 10%;
 }
 
 .intro h1 {
@@ -61,6 +61,7 @@ body {
     font-size: 32px;
     font-weight: 600;
     margin-bottom: 3rem;
+    width: 100%;
 }
 
 .intro p {
@@ -73,55 +74,36 @@ body {
     background-color: #370511;
 }
 
-/* @media (max-width: 1500px){
-    .intro h3{
-        display: none;
-    }
-}
-
-@media (max-width: 1100px){
-    .background-img{
-        margin-top: -10rem;
-    }
-}
-
-@media (max-width: 850px){
+@media(max-width: 673px){
     .intro {
         margin-left: 0;
         margin-top: 5rem;
+        margin-bottom: 10rem;
     }
 
-}
-
-@media (max-width: 670px){
-    .background-img{
-        margin-top: -7rem;
+    .intro h3{
+        font-size: 24px;
     }
 
-    .intro {
-        margin-top: 2rem;
-    }
-
-    .navbar {
-        justify-content: space-between;
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
-
-    .navbar ul{
+    .navbar ul {
         flex-direction: column;
-        gap: 1rem;
+        gap: 16px;
+        justify-content: center;
+        align-items: center;
+    }
+    .navbar{
+        justify-content: space-between;
         
     }
-    
-}
 
-@media (max-width: 540px){
-
-    .background-img{
-        margin-top: -4rem;
+    .login-register li{
+        display: block;
     }
-} */
-
-
-
+}
+@media(max-width: 420px){
+    .intro {
+        margin-left: 0;
+        margin-top: 1rem;
+        margin-bottom: 3rem;
+    }
+}
