@@ -37,7 +37,6 @@ export class UserService {
   private endpoints = {
     login: '/auth/login',
     register: '/auth/register',
-    logout: '/users/logout',
   };
 
   login(email: string, password: string): Observable<any> {
@@ -52,15 +51,5 @@ export class UserService {
       email: email,
       password: password,
     });
-  }
-
-  logout(): void {
-    const headers = this.getAuthHeaders();
-    this.http
-      .get(`${this.appUrl}/users/logout`, { headers })
-      .subscribe((res) => {
-        this.user = undefined;
-        localStorage.removeItem(this.USER_KEY);
-      });
   }
 }

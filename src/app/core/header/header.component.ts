@@ -18,7 +18,8 @@ export class HeaderComponent {
   // getter for user first name
 
   logout(): void {
-    this.userService.logout();
+    this.userService.user = undefined;
+    localStorage.clear();
     this.router.navigate(['/main']);
   }
 }
