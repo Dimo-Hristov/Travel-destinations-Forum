@@ -5,7 +5,7 @@ export interface destination {
   description: string;
   imageUrl: string;
   type: string;
-  _ownerId: string;
+  _ownerId: any;
   _createdOn: number;
   _id: string;
   likes: string[];

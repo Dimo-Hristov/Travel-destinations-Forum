@@ -22,7 +22,7 @@ export class DestinationService implements OnInit {
     getDestination: '/data/fruits?sortBy=_createdOn%20desc',
     addDestination: '/destinations',
     details: '/data/destinations/',
-    edit: '/data/destinations/',
+    edit: '/destinations',
     delete: '/data/destinations/',
     search1: '/data/fruits?where=name%20LIKE%20%22',
     search2: '%22',
@@ -69,7 +69,7 @@ export class DestinationService implements OnInit {
     const headers = this.userService.getAuthHeaders();
 
     return this.http.put(
-      `${this.appUrl}${this.endPoints.edit}${destinationId}`,
+      `${this.appUrl}${this.endPoints.edit}/${destinationId}`,
       JSON.stringify(data),
       { headers }
     );

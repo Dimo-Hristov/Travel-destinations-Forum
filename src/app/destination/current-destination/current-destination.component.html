@@ -25,7 +25,7 @@
           {{ isLiked ? "Unlike" : "Like" }}
         </button>
       </li>
-      <ng-container *ngIf="userId === destination._ownerId">
+      <ng-container *ngIf="userId === destination._ownerId._id">
         <li>
           <button class="edit-btn" (click)="editDestination()">edit</button>
         </li>
