@@ -32,8 +32,6 @@ export class CurrentDestinationComponent implements OnInit {
   ngOnInit(): void {
     this.fetchDestination();
     this.userId = this.userService.user?._id;
-    this.getLikesList(this.destinationId);
-    this.getDestinationLikes(this.destinationId);
   }
 
   goBack(): void {
@@ -41,14 +39,14 @@ export class CurrentDestinationComponent implements OnInit {
   }
 
   fetchDestination(): void {
-    this.destinationService.getDestination(this.destinationId).subscribe(
-      (destination: destination) => {
+    this.destinationService.getDestination(this.destinationId).subscribe({
+      next: (destination: destination) => {
         this.destination = destination;
       },
-      (error) => {
+      error: (error) => {
         alert(error.message);
-      }
-    );
+      },
+    });
   }
 
   likeDestinationHandler(): void {

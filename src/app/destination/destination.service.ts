@@ -37,7 +37,7 @@ export class DestinationService implements OnInit {
   constructor(private http: HttpClient, private userService: UserService) {}
 
   getDestination(id: string) {
-    return this.http.get<destination>(`${this.appUrl}/data/destinations/${id}`);
+    return this.http.get<destination>(`${this.appUrl}/destinations/${id}`);
   }
 
   addDestination(data: object): Observable<any> {
