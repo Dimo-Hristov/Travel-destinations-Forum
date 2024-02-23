@@ -9,8 +9,6 @@ import { ApiService } from '../api.service';
 import { destination } from '../types/destination';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { UserService } from '../user/user.service';
-import { DestinationService } from '../destination/destination.service';
-import { sortDestinationsByLikes } from '../shared/sort-destinations/sort-by-likes.utill';
 import { ActivatedRoute } from '@angular/router';
 import { filterDestinationsByType } from '../shared/filter-destinations/filter-by-type.until';
 import { ScrollService } from '../destination/scroll.service';
@@ -30,7 +28,6 @@ export class DestinationsListComponent implements OnInit, OnDestroy {
     private apiService: ApiService,
     private sanitizer: DomSanitizer,
     private userService: UserService,
-    private destinationService: DestinationService,
     private activatedRoute: ActivatedRoute,
     private scrollService: ScrollService
   ) {}
@@ -92,20 +89,5 @@ export class DestinationsListComponent implements OnInit, OnDestroy {
 
   get isLogged(): boolean {
     return this.userService.isLogged;
-  }
-
-  setLikes(destinations: destination[]) {
-    for (const destination of destinations) {
-      this.destinationService
-        .getDestinationLikesCount(destination._id)
-        .subscribe(
-          (res) => {
-            destination.likes = res;
-          },
-          (error) => {
-            alert(error.message);
-          }
-        );
-    }
   }
 }

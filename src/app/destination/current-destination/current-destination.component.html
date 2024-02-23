@@ -3,7 +3,7 @@
     <h1>{{ destination.destination }}</h1>
     <img [src]="sanitizeImageUrl(destination.imageUrl)" alt="Image" />
 
-    <p class="likes-count">{{ currentDestinationLikes }} likes</p>
+    <p class="likes-count">{{ destination.likes.length }} likes</p>
   </div>
 
   <div class="char">
@@ -17,13 +17,12 @@
       <li>
         <button
           class="likeBtn"
-          [disabled]="isLikeButtonDisabled"
           (click)="likeDestinationHandler()"
           #likeButton
           class="like-btn"
           *ngIf="userId"
         >
-          {{ isLikeButtonDisabled ? "Liked" : "Like" }}
+          {{ isLiked ? "Unlike" : "Like" }}
         </button>
       </li>
       <ng-container *ngIf="userId === destination._ownerId">

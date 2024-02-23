@@ -13,12 +13,11 @@ import { ScrollService } from '../scroll.service';
   styleUrls: ['./current-destination.component.css'],
 })
 export class CurrentDestinationComponent implements OnInit {
-  public destination: destination | undefined;
+  public destination!: destination;
   userId: string = '';
   counts: any;
   destinationId: string = this.activatedRoute.snapshot.params['destinationId'];
-  isLikeButtonDisabled: boolean = false;
-  currentDestinationLikes: number = 0;
+  isLiked: boolean = false;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -30,8 +29,8 @@ export class CurrentDestinationComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.userId = this.userService.user._id || '';
     this.fetchDestination();
-    this.userId = this.userService.user?._id;
   }
 
   goBack(): void {
@@ -42,6 +41,7 @@ export class CurrentDestinationComponent implements OnInit {
     this.destinationService.getDestination(this.destinationId).subscribe({
       next: (destination: destination) => {
         this.destination = destination;
+        this.isLiked = this.destination.likes.includes(this.userId);
       },
       error: (error) => {
         alert(error.message);
@@ -52,23 +52,14 @@ export class CurrentDestinationComponent implements OnInit {
   likeDestinationHandler(): void {
     this.destinationService.likeDestination(this.destinationId).subscribe(
       (res) => {
-        this.currentDestinationLikes++;
-        this.isLikeButtonDisabled = true;
-      },
-      (error) => {
-        alert(error.message);
-      }
-    );
-  }
-
-  getLikesList(destinationId: string): any {
-    this.destinationService.getDestinationLikesList(destinationId).subscribe(
-      (likesList) => {
-        for (const like of likesList) {
-          if (like._ownerId === this.userId) {
-            this.isLikeButtonDisabled = true;
-            return;
-          }
+        this.isLiked = !this.isLiked;
+        if (this.isLiked) {
+          this.destination?.likes.push(this.userId);
+        }
+        if (!this.isLiked) {
+          this.destination.likes = this.destination?.likes.filter(
+            (x) => x !== this.userId
+          );
         }
       },
       (error) => {
@@ -104,17 +95,6 @@ export class CurrentDestinationComponent implements OnInit {
         }
       );
     }
-  }
-
-  getDestinationLikes(destinationId: string) {
-    this.destinationService.getDestinationLikesCount(destinationId).subscribe(
-      (res) => {
-        this.currentDestinationLikes = res;
-      },
-      (error) => {
-        alert(error.message);
-      }
-    );
   }
 
   sanitizeImageUrl(url: string): SafeResourceUrl {

@@ -4,7 +4,6 @@ import { UserService } from '../user.service';
 import { destination } from '../../types/destination';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ScrollService } from '../../destination/scroll.service';
-import { Like } from 'src/app/types/like';
 import { DestinationService } from 'src/app/destination/destination.service';
 
 @Component({
@@ -21,7 +20,6 @@ export class ProfileComponent implements OnInit, OnDestroy {
     private scrollService: ScrollService
   ) {}
 
-  lastTenLikes: Like[] = [];
   userId = this.userService.user._id;
   likedDestinations: destination[] = [];
   myDestinations: destination[] = [];
