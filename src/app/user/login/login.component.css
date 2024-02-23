@@ -1,12 +1,11 @@
 .login{
-margin: 0 16px;
     height: 50vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: white;
-   
+    background-color: whitesmoke;
+   width: 100%;
 }
 
 .login h2 {

@@ -6,7 +6,7 @@
     color: white;
     height: 250px;
     padding: 0 5rem;
-    background-color: white;
+    background-color: (255, 255, 255, 0.8);
 }
 
 .site-footer h1 {
