@@ -16,6 +16,7 @@
 .site-footer ul li {
     list-style-type: none;
     padding: 0.5rem 0;
+    list-style-type: disc;
 }
 
 .site-footer ul li a {
@@ -42,7 +43,6 @@
 
     .site-footer ul li{
         padding: 1px;
-        list-style-type: disc;
     }
 }
 
@@ -65,17 +65,11 @@
 }
 
 @media (max-width: 550px){
-    .site-footer h1{
-        display: none;
-    }
 
     .site-footer {
         padding: 0 8px;
-    }
-}
-
-@media (max-width: 411px){
-    .site-footer{
-        height: 350px;
+        display: flex;
+        flex-direction: column;
+        height: 800px;
     }
 }
