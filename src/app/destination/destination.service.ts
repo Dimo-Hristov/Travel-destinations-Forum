@@ -27,11 +27,12 @@ export class DestinationService implements OnInit {
     search1: '/data/fruits?where=name%20LIKE%20%22',
     search2: '%22',
     like: '/destinations/like',
-    // put album id between 1 and 2
+    // put destination id between 1 and 2
     likesList1: '/data/likes?where=albumId%3D%22',
     likesList2: '%22&distinct=_ownerId',
     likeCount1: '/data/likes?where=albumId%3D%22',
     likeCount2: '%22&distinct=_ownerId&count',
+    getMyLikes: `/destinations/my-likes`,
   };
 
   constructor(private http: HttpClient, private userService: UserService) {}
@@ -72,6 +73,13 @@ export class DestinationService implements OnInit {
       JSON.stringify(data),
       { headers }
     );
+  }
+
+  getLikes() {
+    const headers = this.userService.getAuthHeaders();
+    return this.http.get(`${this.appUrl}${this.endPoints.getMyLikes}`, {
+      headers,
+    });
   }
 
   deleteDestination(destinationId: string): Observable<any> {

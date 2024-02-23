@@ -27,7 +27,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
   myDestinations: destination[] = [];
 
   ngOnInit(): void {
-    this.getLikes();
+    this.getMyLikes();
     this.getMyPosts();
     window.addEventListener('scroll', this.onScroll);
   }
@@ -40,37 +40,16 @@ export class ProfileComponent implements OnInit, OnDestroy {
     const scrollPosition = window.scrollY;
     this.scrollService.setLastScrollPosition(scrollPosition);
   };
-  //get likesList
-  getLikes() {
-    let likesList: any;
-    this.apiService.getAllLikes().subscribe(
-      (res) => {
-        likesList = res;
-        this.filterLikes(likesList);
-      },
-      (error) => {
-        alert(error.message);
-      }
-    );
-  }
-  //get all liked destinations for current user
-  filterLikes(likesList: Like[]) {
-    for (const like of likesList) {
-      if (this.userId === like._ownerId) {
-        this.lastTenLikes.push(like);
-      }
-    }
 
-    this.lastTenLikes = this.lastTenLikes.slice(-10);
-    this.getLikedDestinations(this.lastTenLikes);
-  }
-  // get last 10 liked destinations
-  getLikedDestinations(likesArray: Like[]) {
-    for (const like of likesArray) {
-      this.destinationService.getDestination(like.albumId).subscribe((res) => {
-        this.likedDestinations.push(res);
-      });
-    }
+  getMyLikes() {
+    this.destinationService.getLikes().subscribe({
+      next: (res: any) => {
+        this.likedDestinations = res;
+      },
+      error: (err) => {
+        alert(err.message);
+      },
+    });
   }
 
   getMyPosts() {
