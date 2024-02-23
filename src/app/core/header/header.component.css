@@ -7,7 +7,9 @@ body {
     top: 0;
     z-index: -1;
     width: 100%;
-    margin-top: -14rem;
+    max-height: 30%;
+    object-fit: cover;
+
 }
 
 .navbar {
@@ -71,7 +73,7 @@ body {
     background-color: #370511;
 }
 
-@media (max-width: 1500px){
+/* @media (max-width: 1500px){
     .intro h3{
         display: none;
     }
@@ -119,7 +121,7 @@ body {
     .background-img{
         margin-top: -4rem;
     }
-}
+} */
 
 
 
