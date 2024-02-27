@@ -21,19 +21,16 @@ font-size: 42px;
 }
 
 .places-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
+   display: flex;
+   gap: 20px;
+   flex-wrap: wrap;
 }
 
-.places-container article{
-    width: 400px;
-}
+
 
 
 .places-container img {
-    width: 400px;
-    height: 320px;
+
     border-radius: 1rem 1rem 0 0 ;
 }
 
@@ -52,7 +49,7 @@ font-size: 42px;
     color: black;
     border: 1px solid black;
     border-radius: 5rem;
-    width: 50%;
+
     margin-top: 1rem;
     margin-bottom: 4rem;
     padding: 1rem 2rem;
@@ -73,10 +70,7 @@ font-size: 42px;
     border-radius: 8px;
 }
 
-.posts-container img{   
-    width: 400px;
-    
-}
+
 
 .posts-container .buttons button {
     padding: 8px;
@@ -97,6 +91,12 @@ font-size: 42px;
 .posts-container article {
     margin-top: 2rem;
     border-bottom: 1px solid  black;
+}
+
+@media(max-width: 1300px){
+    .main-section{
+        flex-direction: column;
+    }
 }
 
 
