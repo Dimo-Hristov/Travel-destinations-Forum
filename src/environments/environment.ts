@@ -1,3 +1,3 @@
 export const environment = {
-  appUrl: 'http://localhost:3030',
+  appUrl: 'https://travel-destinations-server.onrender.com',
 };
