@@ -1,6 +1,5 @@
 .destination{
-
-    height: 60vh;
+    min-height: 60vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,11 +28,12 @@
 
 
 .destinationForm {
+margin: 20px 16px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 20%;
+
     height: 90%;
     padding: 20px;
     color: whitesmoke;
